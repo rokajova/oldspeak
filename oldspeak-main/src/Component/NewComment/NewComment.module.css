@@ -1,0 +1,44 @@
+.Label {
+  font-size: 18px;
+  color: black;
+  font-family: sans-serif;
+  text-align: center;
+  background-color: #f7f7f7;
+  border-top: 1px solid lightgray;
+  border-left: 1px solid lightgray;
+  border-right: 1px solid lightgray;
+}
+.FeatureImg {
+  width: 70%;
+  height: 70%;
+  overflow: hidden;
+}
+
+.NewCommentMain {
+  padding-top: 0px;
+}
+.HorLine {
+  border-top: 1px solid lightgray;
+  width: 5rem;
+}
+
+.Info {
+  background-color: #f7f7f7;
+}
+
+.ImageUploaded {
+  border-left: 1px solid lightgray;
+  border-right: 1px solid lightgray;
+  text-align: center;
+  border-bottom: 1px solid lightgray;
+  padding: 2px;
+}
+
+.ImageUploader {
+  border: 1px solid lightgray;
+  padding: 3px;
+}
+
+.TextEditor {
+  display: none;
+}

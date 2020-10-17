@@ -1,0 +1,56 @@
+.CommentCardContainer {
+  margin-top: 15px;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  transition: 1s;
+}
+
+.Comment {
+  overflow: auto;
+  border: 1px solid #292b2c;
+  border-bottom: none;
+}
+
+.Image {
+  float: left;
+  width: 150px;
+  height: 150px;
+  margin: 0 10px 0 0;
+  transition: 0.5s;
+}
+
+.ImageEnlarged {
+  max-width: 918px;
+  width: 100%;
+  max-height: 918px;
+  height: 100%;
+  transition: 0.5s;
+}
+
+.CommentMain {
+  font-size: 20px;
+  word-wrap: break-word;
+  text-align: left;
+  font-family: monospace;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.Info {
+  font-size: 18px;
+  color: black;
+  font-family: monospace;
+  padding: 0 0 0 0;
+  background-color: #f7f7f7;
+  border-right: 1px solid #292b2c;
+  border-bottom: 1px solid #292b2c;
+  border-left: 1px solid #292b2c;
+  border-top: 1px solid lightgray;
+}
+
+.HorLine {
+  border-right: 1px solid lightgray;
+  height: 1rem;
+  width: 0px;
+}

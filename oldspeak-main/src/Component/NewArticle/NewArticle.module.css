@@ -1,0 +1,18 @@
+.FeatureImg {
+  width: 70%;
+  height: 70%;
+  overflow: hidden;
+}
+
+.ImageUploaded {
+  border-left: 1px solid lightgray;
+  border-right: 1px solid lightgray;
+  text-align: center;
+  border-bottom: 1px solid lightgray;
+  padding: 2px;
+}
+
+.ImageUploader {
+  border: 1px solid lightgray;
+  padding: 3px;
+}
