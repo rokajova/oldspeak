@@ -7,7 +7,7 @@
 
 .Comment {
   overflow: auto;
-  border: 1px solid #292b2c;
+  border: 1px solid #d2d9d9;
   border-bottom: none;
 }
 
@@ -43,9 +43,9 @@
   font-family: monospace;
   padding: 0 0 0 0;
   background-color: #f7f7f7;
-  border-right: 1px solid #292b2c;
-  border-bottom: 1px solid #292b2c;
-  border-left: 1px solid #292b2c;
+  border-right: 1px solid #d2d9d9;
+  border-bottom: 1px solid #d2d9d9;
+  border-left: 1px solid #d2d9d9;
   border-top: 1px solid lightgray;
 }
 

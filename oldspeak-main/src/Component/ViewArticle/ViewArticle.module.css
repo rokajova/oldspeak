@@ -4,7 +4,7 @@
 
 .Article {
   overflow: auto;
-  border: 1px solid #292b2c;
+  border: 1px solid #d2d9d9;
   border-bottom: none;
 }
 
@@ -16,9 +16,9 @@
   background-color: #f7f7f7;
   position: relative;
   border-top: 1px solid lightgray;
-  border-right: 1px solid #292b2c;
-  border-bottom: 1px solid #292b2c;
-  border-left: 1px solid #292b2c;
+  border-right: 1px solid #d2d9d9;
+  border-bottom: 1px solid #d2d9d9;
+  border-left: 1px solid #d2d9d9;
 }
 
 .Title {
