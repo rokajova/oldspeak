@@ -61,12 +61,7 @@ class Heading extends Component {
     return (
       <div>
         {this.props.auth.isLoaded && (
-          <Navbar
-            className={classes.Navbar}
-            expand="xs"
-            color="light"
-            fixed="top"
-          >
+          <Navbar className={classes.Navbar} expand="xs" fixed="top">
             <NavbarBrand style={{ marginRight: 0 }} href="/">
               {" "}
               <img
@@ -74,7 +69,7 @@ class Heading extends Component {
                 src="https://firebasestorage.googleapis.com/v0/b/react-blog-a39d2.appspot.com/o/LogoMakr_85Wfsy.png?alt=media&token=46c44cf2-16d2-4636-ac42-1e4ef459c9c1"
               />
             </NavbarBrand>
-            <Nav className="mr-auto" navbar>
+            <Nav navbar>
               {this.props.auth.isEmpty ? (
                 <NavItem>
                   <Button
@@ -90,7 +85,10 @@ class Heading extends Component {
               ) : (
                 <NavItem>
                   <Button
-                    style={{ borderRadius: 0, fontFamily: "monospace" }}
+                    style={{
+                      borderRadius: 0,
+                      fontFamily: "monospace",
+                    }}
                     outline
                     color="dark"
                     size="sm"
@@ -111,7 +109,10 @@ class Heading extends Component {
                 <NavItem>
                   {" "}
                   <Button
-                    style={{ borderRadius: 0, fontFamily: "monospace" }}
+                    style={{
+                      borderRadius: 0,
+                      fontFamily: "monospace",
+                    }}
                     outline
                     color="dark"
                     size="sm"
