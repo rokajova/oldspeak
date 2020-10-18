@@ -38,7 +38,7 @@ class NewArticle extends Component {
   modules = {
     toolbar: {
       container: [
-        [{ size: [] }],
+        // [{ size: [] }],
         ["bold", "italic", "underline", "strike"],
         // [{ list: "ordered" }, { list: "bullet" }],
         ["link"],
@@ -55,7 +55,7 @@ class NewArticle extends Component {
   formats = [
     "header",
     "font",
-    "size",
+    // "size",
     "bold",
     "italic",
     "underline",

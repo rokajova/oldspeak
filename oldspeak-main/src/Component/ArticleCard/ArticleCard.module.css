@@ -12,13 +12,14 @@
 
 .Article {
   overflow: auto;
+  background-color: #f7f7f7;
 }
 
 .Info {
   font-size: 18px;
   font-family: monospace;
   padding: 0 0 0 0px;
-  background-color: #f7f7f7;
+  background-color: #d2d9d9;
   border-top: 1px solid lightgray;
 }
 
@@ -29,7 +30,7 @@
   padding-left: 0.4rem;
   color: #3b3b3b;
   font-family: monospace;
-  background-color: #f7f7f7;
+  background-color: #d2d9d9;
   border-bottom: 1px solid lightgray;
 }
 

@@ -123,7 +123,6 @@ class Main extends Component {
             </Button>
           ) : (
             <Button
-              size="sm"
               outline
               color="dark"
               style={{ borderRadius: 0 }}
