@@ -34,14 +34,18 @@ class NewArticle extends Component {
       },
     };
   }
-  //quill modules & formats
+
+  // quill modules & format
   modules = {
     toolbar: {
       container: [
         // [{ size: [] }],
         ["bold", "italic", "underline", "strike"],
-        // [{ list: "ordered" }, { list: "bullet" }],
-        ["link"],
+        [{ color: [] }, { background: [] }],
+        [
+          // [{ list: "ordered" }, { list: "bullet" }],
+          "link",
+        ],
         // ["code-block"],
       ],
       handlers: {
@@ -52,14 +56,17 @@ class NewArticle extends Component {
       matchVisual: false,
     },
   };
+
   formats = [
-    "header",
+    // "header",
     "font",
     // "size",
     "bold",
     "italic",
     "underline",
     "strike",
+    "color",
+    "background",
     // "blockquote",
     // "list",
     // "bullet",
@@ -90,7 +97,6 @@ class NewArticle extends Component {
         title: value,
       },
     });
-    console.log(this.state.article.title);
   };
 
   //set article content. If limit reached, delete input
@@ -306,7 +312,7 @@ class NewArticle extends Component {
             maxLength="60"
           />
         </FormGroup>
-        <FormGroup>
+        <FormGroup style={{ overflow: "inherit", backgroundColor: "white" }}>
           <ReactQuill
             ref={(el) => (this.reactQuillRef = el)}
             value={this.state.article.content}
@@ -327,27 +333,45 @@ class NewArticle extends Component {
         </FormGroup>{" "}
         <FormGroup>
           {!submitButtonCondition ? (
-            <Button style={{ borderRadius: 0 }} color="dark" disabled>
+            <Button
+              style={{
+                borderRadius: 0,
+                fontFamily: "monospace",
+                letterSpacing: "2px",
+              }}
+              color="dark"
+              disabled
+            >
               {" "}
-              SUBMIT
+              <strong>SUBMIT</strong>
             </Button>
           ) : (
             <Button
-              style={{ borderRadius: 0 }}
-              color="dark"
+              style={{
+                borderRadius: 0,
+                fontFamily: "monospace",
+                letterSpacing: "2px",
+              }}
+              color="success"
               onClick={(e) => this.submitArticle()}
             >
               {" "}
-              SUBMIT
+              <strong>SUBMIT</strong>
             </Button>
           )}
           <Button
-            style={{ borderRadius: 0, float: "right" }}
-            color="dark"
+            style={{
+              borderRadius: 0,
+              float: "right",
+              backgroundColor: "#B34831",
+              fontFamily: "monospace",
+              letterSpacing: "2px",
+            }}
+            color="danger"
             onClick={(e) => this.props.onArticleToggle()}
           >
             {" "}
-            CLOSE
+            <strong>CANCEL</strong>
           </Button>
         </FormGroup>
       </div>

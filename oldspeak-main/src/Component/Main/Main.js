@@ -125,10 +125,10 @@ class Main extends Component {
             <Button
               outline
               color="dark"
-              style={{ borderRadius: 0 }}
+              style={{ borderRadius: 0, fontFamily: "monospace" }}
               onClick={() => this.nextArticle()}
             >
-              Show 1 more...
+              <strong>SHOW 1 MORE...</strong>
             </Button>
           )}
         </div>

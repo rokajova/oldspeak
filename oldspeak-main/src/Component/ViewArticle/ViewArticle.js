@@ -156,6 +156,29 @@ class ViewArticle extends Component {
                     {Math.round(articleScore)} %
                   </Badge>
                 )}
+                {this.state.article.commentCount ? (
+                  <Badge
+                    style={{
+                      marginRight: 4,
+                      borderRadius: 5,
+                      color: "#3b3b3b",
+                    }}
+                    color="light"
+                  >
+                    R: {this.state.article.commentCount}
+                  </Badge>
+                ) : (
+                  <Badge
+                    style={{
+                      marginRight: 4,
+                      borderRadius: 5,
+                      color: "#3b3b3b",
+                    }}
+                    color="light"
+                  >
+                    No Replies
+                  </Badge>
+                )}
                 <Badge
                   style={{ marginRight: 4, borderRadius: 5, color: "#3b3b3b" }}
                   color="light"
@@ -170,12 +193,6 @@ class ViewArticle extends Component {
                   {this.timeStampToString(
                     this.state.article.createDate.seconds
                   )}
-                </Badge>
-                <Badge
-                  style={{ marginRight: 4, borderRadius: 5, color: "#3b3b3b" }}
-                  color="light"
-                >
-                  R: {this.state.article.commentCount}
                 </Badge>
               </div>
             </Col>

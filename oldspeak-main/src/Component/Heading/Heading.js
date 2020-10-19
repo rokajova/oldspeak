@@ -98,7 +98,7 @@ class Heading extends Component {
                       })
                     }
                   >
-                    <strong>CREATE POST</strong>
+                    <strong>CREATE A THINK</strong>
                   </Button>
                 </NavItem>
               )}
@@ -154,7 +154,9 @@ class Heading extends Component {
           }
           isOpen={this.state.isNewArticleOpen}
         >
-          <ModalBody>
+          <ModalBody
+            style={{ backgroundColor: "#e9ecec", borderRadius: "0.3rem" }}
+          >
             <NewArticle
               isNewArticleOpen={this.state.isNewArticleOpen}
               onArticleToggle={this.handleClick}

@@ -61,10 +61,13 @@ class NewComment extends Component {
   modules = {
     toolbar: {
       container: [
-        [{ size: [] }],
+        // [{ size: [] }],
         ["bold", "italic", "underline", "strike"],
-        // [{ list: "ordered" }, { list: "bullet" }],
-        ["link"],
+        [{ color: [] }, { background: [] }],
+        [
+          // [{ list: "ordered" }, { list: "bullet" }],
+          "link",
+        ],
         // ["code-block"],
       ],
       handlers: {
@@ -77,13 +80,15 @@ class NewComment extends Component {
   };
 
   formats = [
-    "header",
+    // "header",
     "font",
-    "size",
+    // "size",
     "bold",
     "italic",
     "underline",
     "strike",
+    "color",
+    "background",
     // "blockquote",
     // "list",
     // "bullet",
@@ -123,6 +128,7 @@ class NewComment extends Component {
         content: value,
       },
     });
+    console.log(this.state.comment.content);
   };
 
   //recaptcha verify
@@ -278,7 +284,9 @@ class NewComment extends Component {
           toggle={() => this.setState({ isModalOpen: !this.state.isModalOpen })}
           isOpen={this.state.isModalOpen}
         >
-          <ModalBody>
+          <ModalBody
+            style={{ backgroundColor: "#e9ecec", borderRadius: "0.3rem" }}
+          >
             <FormGroup>
               {/* <header className={classes.Label}> Feature Image</header> */}
               <Input
@@ -319,7 +327,9 @@ class NewComment extends Component {
                 ""
               )}
             </FormGroup>{" "}
-            <FormGroup style={{ overflow: "inherit" }}>
+            <FormGroup
+              style={{ overflow: "inherit", backgroundColor: "white" }}
+            >
               <ReactQuill
                 ref={(el) => (this.reactQuillRef = el)}
                 value={this.state.comment.content}
@@ -342,36 +352,46 @@ class NewComment extends Component {
             <FormGroup>
               {!submitButtonCondition ? (
                 <Button
-                  style={{ borderRadius: 0, fontFamily: "monospace" }}
+                  style={{
+                    borderRadius: 0,
+                    fontFamily: "monospace",
+                    letterSpacing: "2px",
+                  }}
                   color="dark"
                   disabled
                 >
                   {" "}
-                  <strong> SUBMIT</strong>
+                  <strong>SUBMIT</strong>
                 </Button>
               ) : (
                 <Button
-                  style={{ borderRadius: 0, fontFamily: "monospace" }}
-                  color="dark"
+                  style={{
+                    borderRadius: 0,
+                    fontFamily: "monospace",
+                    letterSpacing: "2px",
+                  }}
+                  color="success"
                   onClick={(e) => this.submitComment()}
                 >
                   {" "}
-                  <strong> SUBMIT</strong>
+                  <strong>SUBMIT</strong>
                 </Button>
               )}
               <Button
                 style={{
                   borderRadius: 0,
-                  fontFamily: "monospace",
                   float: "right",
+                  backgroundColor: "#B34831",
+                  fontFamily: "monospace",
+                  letterSpacing: "2px",
                 }}
-                color="dark"
+                color="danger"
                 onClick={() =>
                   this.setState({ isModalOpen: !this.state.isModalOpen })
                 }
               >
                 {" "}
-                <strong> CLOSE</strong>
+                CANCEL
               </Button>
             </FormGroup>
           </ModalBody>

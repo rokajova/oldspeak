@@ -46,7 +46,7 @@ const CommentCard = (props) => {
   };
   return (
     <div>
-      <hr className={classes.HorLine} />
+      <hr className={classes.VerLine} />
       <Container className={classes.CommentCardContainer}>
         <Row>
           <Col sm="12" md={{ size: 10, offset: 1 }}>
@@ -83,14 +83,22 @@ const CommentCard = (props) => {
             <div className={classes.Info}>
               {" "}
               <Badge
-                style={{ marginRight: 4, borderRadius: 0, letterSpacing: 1.5 }}
-                color="dark"
+                style={{
+                  marginRight: 4,
+                  borderRadius: 5,
+                  color: "#3b3b3b",
+                }}
+                color="light"
               >
                 P: {props.data.createUserID.slice(0, 7)}
               </Badge>
               <Badge
-                style={{ marginRight: 4, borderRadius: 0, letterSpacing: 1.5 }}
-                color="dark"
+                style={{
+                  marginRight: 4,
+                  borderRadius: 5,
+                  color: "#3b3b3b",
+                }}
+                color="light"
               >
                 {" "}
                 {timeStampToString(props.data.createDate.seconds)}

@@ -100,14 +100,24 @@ const ArticleCard = (props) => {
               {" "}
               {isNaN(articleScore) ? (
                 <Badge
-                  style={{ marginRight: 4, borderRadius: 5, color: "#3b3b3b" }}
+                  style={{
+                    color: "#3b3b3b",
+                    marginRight: 4,
+                    borderRadius: 5,
+                    backgroundColor: "#d2d9d9",
+                  }}
                   color="light"
                 >
                   Not Rated
                 </Badge>
               ) : (
                 <Badge
-                  style={{ marginRight: 4, borderRadius: 5, color: "#3b3b3b" }}
+                  style={{
+                    color: "#3b3b3b",
+                    marginRight: 4,
+                    borderRadius: 5,
+                    backgroundColor: "#d2d9d9",
+                  }}
                   color="light"
                 >
                   {Math.round(articleScore)} %
@@ -115,14 +125,24 @@ const ArticleCard = (props) => {
               )}
               {props.data.commentCount ? (
                 <Badge
-                  style={{ marginRight: 4, borderRadius: 5, color: "#3b3b3b" }}
+                  style={{
+                    color: "#3b3b3b",
+                    marginRight: 4,
+                    borderRadius: 5,
+                    backgroundColor: "#d2d9d9",
+                  }}
                   color="light"
                 >
                   R: {props.data.commentCount}
                 </Badge>
               ) : (
                 <Badge
-                  style={{ marginRight: 4, borderRadius: 5, color: "#3b3b3b" }}
+                  style={{
+                    color: "#3b3b3b",
+                    marginRight: 4,
+                    borderRadius: 5,
+                    backgroundColor: "#d2d9d9",
+                  }}
                   color="light"
                 >
                   No Replies
@@ -133,13 +153,19 @@ const ArticleCard = (props) => {
                   color: "#3b3b3b",
                   marginRight: 4,
                   borderRadius: 5,
+                  backgroundColor: "#d2d9d9",
                 }}
                 color="light"
               >
                 P: {props.data.createUserID.slice(0, 7)}
               </Badge>
               <Badge
-                style={{ marginRight: 4, borderRadius: 5, color: "#3b3b3b" }}
+                style={{
+                  color: "#3b3b3b",
+                  marginRight: 4,
+                  borderRadius: 5,
+                  backgroundColor: "#d2d9d9",
+                }}
                 color="light"
               >
                 {" "}
