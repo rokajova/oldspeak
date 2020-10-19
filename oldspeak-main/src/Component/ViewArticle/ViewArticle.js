@@ -104,12 +104,12 @@ class ViewArticle extends Component {
           <Row>
             <Col sm="12" md={{ size: 12, offset: 0 }}>
               {" "}
+              <div className={classes.TitleDiv}>
+                <header className={classes.Title}>
+                  {this.state.article.title}
+                </header>
+              </div>
               <div className={classes.Article}>
-                <div className={classes.ArticleInfo}>
-                  <header className={classes.Title}>
-                    <strong>{this.state.article.title}</strong>
-                  </header>
-                </div>
                 <div className={classes.ImageContainer}>
                   {this.state.isEnlarged ? (
                     <img
@@ -135,36 +135,46 @@ class ViewArticle extends Component {
                 {" "}
                 {isNaN(articleScore) ? (
                   <Badge
-                    style={{ marginRight: 4, borderRadius: 0 }}
-                    color="dark"
+                    style={{
+                      marginRight: 4,
+                      borderRadius: 5,
+                      color: "#3b3b3b",
+                    }}
+                    color="light"
                   >
                     Not Rated
                   </Badge>
                 ) : (
                   <Badge
-                    style={{ marginRight: 4, borderRadius: 0 }}
-                    color="dark"
+                    style={{
+                      marginRight: 4,
+                      borderRadius: 5,
+                      color: "#3b3b3b",
+                    }}
+                    color="light"
                   >
                     {Math.round(articleScore)} %
                   </Badge>
                 )}
                 <Badge
-                  style={{
-                    marginRight: 4,
-                    borderRadius: 0,
-                    letterSpacing: 1.5,
-                  }}
-                  color="dark"
+                  style={{ marginRight: 4, borderRadius: 5, color: "#3b3b3b" }}
+                  color="light"
                 >
                   P: {this.state.article.createUserID.slice(0, 7)}
                 </Badge>
-                <Badge style={{ marginRight: 4, borderRadius: 0 }} color="dark">
+                <Badge
+                  style={{ marginRight: 4, borderRadius: 5, color: "#3b3b3b" }}
+                  color="light"
+                >
                   {" "}
                   {this.timeStampToString(
                     this.state.article.createDate.seconds
                   )}
                 </Badge>
-                <Badge style={{ marginRight: 4, borderRadius: 0 }} color="dark">
+                <Badge
+                  style={{ marginRight: 4, borderRadius: 5, color: "#3b3b3b" }}
+                  color="light"
+                >
                   R: {this.state.article.commentCount}
                 </Badge>
               </div>

@@ -56,10 +56,8 @@ const ArticleCard = (props) => {
       <Container className={classes.ViewArticleContainer}>
         {props.auth.isEmpty ? (
           <div className={classes.Article}>
-            <div className={classes.ArticleInfo}>
-              <header className={classes.Title}>
-                <h3>{props.data.title}</h3>
-              </header>
+            <div>
+              <header className={classes.Title}>{props.data.title}</header>
             </div>
             <div className={classes.ImageContainer}>
               <img
@@ -84,9 +82,7 @@ const ArticleCard = (props) => {
             {" "}
             <div className={classes.Article}>
               <div className={classes.ArticleInfo}>
-                <header className={classes.Title}>
-                  <h3>{props.data.title}</h3>
-                </header>
+                <header className={classes.Title}>{props.data.title}</header>
               </div>
               <div className={classes.ImageContainer}>
                 <img
@@ -100,40 +96,58 @@ const ArticleCard = (props) => {
                 {parse(removeTags(props.data.content))}
               </div>
             </div>
+            <div className={classes.Info}>
+              {" "}
+              {isNaN(articleScore) ? (
+                <Badge
+                  style={{ marginRight: 4, borderRadius: 5, color: "#3b3b3b" }}
+                  color="light"
+                >
+                  Not Rated
+                </Badge>
+              ) : (
+                <Badge
+                  style={{ marginRight: 4, borderRadius: 5, color: "#3b3b3b" }}
+                  color="light"
+                >
+                  {Math.round(articleScore)} %
+                </Badge>
+              )}
+              {props.data.commentCount ? (
+                <Badge
+                  style={{ marginRight: 4, borderRadius: 5, color: "#3b3b3b" }}
+                  color="light"
+                >
+                  R: {props.data.commentCount}
+                </Badge>
+              ) : (
+                <Badge
+                  style={{ marginRight: 4, borderRadius: 5, color: "#3b3b3b" }}
+                  color="light"
+                >
+                  No Replies
+                </Badge>
+              )}
+              <Badge
+                style={{
+                  color: "#3b3b3b",
+                  marginRight: 4,
+                  borderRadius: 5,
+                }}
+                color="light"
+              >
+                P: {props.data.createUserID.slice(0, 7)}
+              </Badge>
+              <Badge
+                style={{ marginRight: 4, borderRadius: 5, color: "#3b3b3b" }}
+                color="light"
+              >
+                {" "}
+                {timeStampToString(props.data.createDate.seconds)}
+              </Badge>
+            </div>
           </Link>
         )}
-
-        <div className={classes.Info}>
-          {" "}
-          {isNaN(articleScore) ? (
-            <Badge style={{ marginRight: 4, borderRadius: 0 }} color="dark">
-              Not Rated
-            </Badge>
-          ) : (
-            <Badge style={{ marginRight: 4, borderRadius: 0 }} color="dark">
-              {Math.round(articleScore)} %
-            </Badge>
-          )}
-          {props.data.commentCount ? (
-            <Badge style={{ marginRight: 4, borderRadius: 0 }} color="dark">
-              R:{props.data.commentCount}
-            </Badge>
-          ) : (
-            <Badge style={{ marginRight: 4, borderRadius: 0 }} color="dark">
-              No Replies
-            </Badge>
-          )}
-          <Badge
-            style={{ marginRight: 4, borderRadius: 0, letterSpacing: 1.5 }}
-            color="dark"
-          >
-            P: {props.data.createUserID.slice(0, 7)}
-          </Badge>
-          <Badge style={{ marginRight: 4, borderRadius: 0 }} color="dark">
-            {" "}
-            {timeStampToString(props.data.createDate.seconds)}
-          </Badge>
-        </div>
       </Container>
       <hr className={classes.HorLine} />
     </div>

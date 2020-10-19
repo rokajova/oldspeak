@@ -2,35 +2,34 @@
   margin-top: 0px;
   padding-left: 0px !important;
   padding-right: 0px !important;
-  border: 1px solid #d2d9d9;
+  border: 1px solid silver;
+  background-color: #eff1f1;
+  box-shadow: 0px 0px 0px #3b3b3b;
+  border-radius: 10px;
 }
 
 .ViewArticleContainer:hover {
-  box-shadow: 0px 0px 15px -3px #3b3b3b;
+  box-shadow: 0px 0px 12px -3px #3b3b3b;
   transition: 0.5s;
 }
 
 .Article {
   overflow: auto;
-  background-color: #f7f7f7;
 }
 
 .Info {
   font-size: 18px;
-  font-family: monospace;
-  padding: 0 0 0 0px;
-  background-color: #d2d9d9;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0 0 0 3px;
   border-top: 1px solid lightgray;
 }
 
 .Title {
   font-size: 22px;
   word-wrap: break-word;
-
   padding-left: 0.4rem;
   color: #3b3b3b;
-  font-family: monospace;
-  background-color: #d2d9d9;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   border-bottom: 1px solid lightgray;
 }
 
@@ -53,17 +52,18 @@
 .ArticleMain {
   word-wrap: break-word;
   text-align: left;
-  font-family: monospace;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
   padding-right: 10px;
   padding-left: 10px;
-  padding-top: 10px;
+  padding-top: 0px;
   max-height: 150px;
   color: #3b3b3b;
-  font-size: 20px;
+  font-size: 18px;
   overflow: hidden;
 }
 
 .HorLine {
-  border-top: 1px solid lightgray;
+  border-top: 1px solid silver;
   width: 5rem;
 }

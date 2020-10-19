@@ -66,7 +66,7 @@ class Heading extends Component {
               {" "}
               <img
                 className={classes.Logo}
-                src="https://firebasestorage.googleapis.com/v0/b/react-blog-a39d2.appspot.com/o/LogoMakr_85Wfsy.png?alt=media&token=46c44cf2-16d2-4636-ac42-1e4ef459c9c1"
+                src="https://firebasestorage.googleapis.com/v0/b/oldspeak-56bd3.appspot.com/o/Logo.png?alt=media&token=19be2e08-aeb8-43b7-8f20-55e7665768b7"
               />
             </NavbarBrand>
             <Nav navbar>

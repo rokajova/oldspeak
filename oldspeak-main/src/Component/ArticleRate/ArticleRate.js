@@ -198,7 +198,7 @@ class ArticleRate extends Component {
       );
     } else {
       return (
-        <div style={{ textAlign: "center", paddingTop: "5px" }}>
+        <div style={{ textAlign: "center", paddingTop: "2rem" }}>
           <Spinner />
         </div>
       );
