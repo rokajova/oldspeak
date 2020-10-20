@@ -156,7 +156,7 @@ class ArticleRate extends Component {
                   color="danger"
                   onClick={() => this.negativeRating()}
                 >
-                  <strong>UNGOOD</strong>
+                  <strong>BAD</strong>
                 </Button>
               </div>
             ) : null}
@@ -189,7 +189,7 @@ class ArticleRate extends Component {
                   color="danger"
                   disabled
                 >
-                  <strong>UNGOOD</strong>
+                  <strong>BAD</strong>
                 </Button>
               </div>
             ) : null}

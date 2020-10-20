@@ -304,7 +304,7 @@ class NewArticle extends Component {
           <Input
             style={{ borderRadius: 0 }}
             type="text"
-            placeholder="Title of the post..."
+            placeholder="Think title..."
             name="articleTitle"
             id="articleTitle"
             onChange={(e) => this.onChangeArticleTitle(e.target.value)}
@@ -317,7 +317,7 @@ class NewArticle extends Component {
             ref={(el) => (this.reactQuillRef = el)}
             value={this.state.article.content}
             onChange={(e) => this.onChangeArticleContent(e)}
-            placeholder="Type in an article..."
+            placeholder="Think content..."
             theme="snow"
             modules={this.modules}
             formats={this.formats}

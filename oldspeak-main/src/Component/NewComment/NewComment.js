@@ -334,7 +334,7 @@ class NewComment extends Component {
                 ref={(el) => (this.reactQuillRef = el)}
                 value={this.state.comment.content}
                 onChange={(e) => this.onChangeCommentContent(e)}
-                placeholder="Type in a comment..."
+                placeholder="Content..."
                 theme="snow"
                 modules={this.modules}
                 formats={this.formats}
@@ -407,7 +407,7 @@ class NewComment extends Component {
             onClick={(e) => this.toggleModal()}
           >
             {" "}
-            <strong>CREATE A REPLY</strong>
+            <strong>CREATE A COMMENT</strong>
           </Button>
         </FormGroup>
 

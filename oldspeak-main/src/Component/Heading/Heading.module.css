@@ -14,6 +14,8 @@
   background-color: #d2d9d9;
 }
 
-.Modal {
-  background-color: #e9ecec !important;
+.ModalInfoBody {
+  height: 75vh;
+  overflow-y: auto;
+  overflow-x: hidden;
 }

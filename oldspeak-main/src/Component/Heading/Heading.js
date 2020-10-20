@@ -79,7 +79,7 @@ class Heading extends Component {
                     size="sm"
                     onClick={() => this.login()}
                   >
-                    <strong>CREATE ID</strong>
+                    <strong>CREATE NAME</strong>
                   </Button>
                 </NavItem>
               ) : (
@@ -98,7 +98,7 @@ class Heading extends Component {
                       })
                     }
                   >
-                    <strong>CREATE A THINK</strong>
+                    <strong>CREATE THINK</strong>
                   </Button>
                 </NavItem>
               )}
@@ -126,24 +126,44 @@ class Heading extends Component {
           </Navbar>
         )}
         <Modal
+          className={classes.ModalInfo}
+          size="lg"
           toggle={() => this.setState({ isInfoOpen: !this.state.isInfoOpen })}
           centered="true"
           isOpen={this.state.isInfoOpen}
         >
-          <ModalBody>
+          <ModalBody
+            className={classes.ModalInfoBody}
+            style={{
+              backgroundColor: "#e9ecec",
+              padding: "4px",
+              borderTopLeftRadius: "0.3rem",
+              borderTopRightRadius: "0.3rem",
+            }}
+          >
             <Info />
           </ModalBody>
-          <ModalFooter style={{ padding: 0 }}>
-            Contact me @ mail.com
+          <ModalFooter
+            style={{ padding: "0.5rem", backgroundColor: "#e9ecec" }}
+          >
+            <strong style={{ fontFamily: "monospace", fontSize: "16px" }}>
+              contact@oldspeak.me
+            </strong>
             <Button
               onClick={() =>
                 this.setState({ isInfoOpen: !this.state.isInfoOpen })
               }
-              size="sm"
+              style={{
+                borderRadius: 0,
+                float: "right",
+                backgroundColor: "#B34831",
+                fontFamily: "monospace",
+                letterSpacing: "2px",
+              }}
               color="danger"
               className="ml-auto"
             >
-              CLOSE{" "}
+              <strong>CLOSE</strong>{" "}
             </Button>
           </ModalFooter>
         </Modal>
