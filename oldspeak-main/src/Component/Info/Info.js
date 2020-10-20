@@ -238,34 +238,34 @@ const Info = (props) => {
               </div>
               <div className={classes.ModalInfoContent}>
                 <p style={{ margin: "4px" }}>
-                  <strong>3.</strong> You will not upload image/video/text
-                  content that is illegal or breaks any global or local laws.
+                  <strong>3.</strong> Do not upload image/video/text content
+                  that is illegal or breaks any global or local laws.
                 </p>{" "}
               </div>
               <div className={classes.ModalInfoContent}>
                 <p style={{ margin: "4px" }}>
                   <strong>4.</strong> Legal NSFW content is allowed and will not
-                  be removed unless it gets copyright striked.
+                  be removed.
                 </p>{" "}
               </div>
               <div className={classes.ModalInfoContent}>
                 <p style={{ margin: "4px" }}>
-                  <strong>5.</strong> You will not,
-                  <strong> in any shape or form</strong>, upload any content
-                  containing child pornography or any content of minors under
-                  the age of 18 engaging in sexual acts.
+                  <strong>5.</strong> Do not upload any content containing,
+                  <strong> in any shape or form</strong>, child pornography or
+                  any content of minors under the age of 18 engaging in sexual
+                  acts.
                 </p>{" "}
               </div>
 
               <div className={classes.ModalInfoContent}>
                 <p style={{ margin: "4px" }}>
-                  <strong>6.</strong> You will not upload personal information
-                  of any person or company for malicious intent ("doxing").
+                  <strong>6.</strong> Do not upload personal information of any
+                  person or company for malicious intent ("doxing").
                 </p>{" "}
               </div>
               <div className={classes.ModalInfoContent}>
                 <p style={{ margin: "4px" }}>
-                  <strong>7.</strong> You will not spam or flood the website.
+                  <strong>7.</strong> Do not spam or flood the website.
                 </p>{" "}
               </div>
               <div className={classes.ModalInfoContent}>

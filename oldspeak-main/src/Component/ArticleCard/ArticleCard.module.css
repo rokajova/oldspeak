@@ -15,6 +15,7 @@
 
 .Article {
   overflow: auto;
+  border-bottom: 1px solid lightgray;
 }
 
 .Info {
