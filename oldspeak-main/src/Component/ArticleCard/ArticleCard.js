@@ -1,16 +1,5 @@
 import React from "react";
-import {
-  Card,
-  CardImg,
-  CardTitle,
-  CardSubtitle,
-  CardBody,
-  Badge,
-  Col,
-  Row,
-  Container,
-  Tooltip,
-} from "reactstrap";
+import { Badge, Container, Tooltip, Progress } from "reactstrap";
 import { connect } from "react-redux";
 import classes from "./ArticleCard.module.css";
 import parse from "html-react-parser";
@@ -55,31 +44,7 @@ const ArticleCard = (props) => {
     <div>
       <Container className={classes.ViewArticleContainer}>
         {props.auth.isEmpty ? (
-          <div className={classes.Article}>
-            <div>
-              <header className={classes.Title}>{props.data.title}</header>
-            </div>
-            <div className={classes.ImageContainer}>
-              <img
-                className={classes.Image}
-                src={props.data.featureImage}
-                alt="Feature Image"
-              />
-            </div>
-
-            <div className={classes.ArticleMain}>
-              {parse(removeTags(props.data.content))}
-            </div>
-          </div>
-        ) : (
-          <Link
-            style={{ textDecoration: "none" }}
-            to={{
-              pathname: "article/" + props.data.id,
-              state: { article: props.data },
-            }}
-          >
-            {" "}
+          <div>
             <div className={classes.Article}>
               <div className={classes.ArticleInfo}>
                 <header className={classes.Title}>{props.data.title}</header>
@@ -96,8 +61,13 @@ const ArticleCard = (props) => {
                 {parse(removeTags(props.data.content))}
               </div>
             </div>
+            {isNaN(articleScore) ? null : (
+              <Progress multi className={classes.ProgressBar}>
+                <Progress bar value={articleScore} color="success" />
+                <Progress bar value={100 - articleScore} color="danger" />
+              </Progress>
+            )}
             <div className={classes.Info}>
-              {" "}
               {isNaN(articleScore) ? (
                 <Badge
                   style={{
@@ -168,7 +138,112 @@ const ArticleCard = (props) => {
                 }}
                 color="light"
               >
-                {" "}
+                {timeStampToString(props.data.createDate.seconds)}
+              </Badge>
+            </div>
+          </div>
+        ) : (
+          <Link
+            style={{ textDecoration: "none" }}
+            to={{
+              pathname: "article/" + props.data.id,
+              state: { article: props.data },
+            }}
+          >
+            <div className={classes.Article}>
+              <div className={classes.ArticleInfo}>
+                <header className={classes.Title}>{props.data.title}</header>
+              </div>
+              <div className={classes.ImageContainer}>
+                <img
+                  className={classes.Image}
+                  src={props.data.featureImage}
+                  alt="Feature Image"
+                />
+              </div>
+
+              <div className={classes.ArticleMain}>
+                {parse(removeTags(props.data.content))}
+              </div>
+            </div>
+            {isNaN(articleScore) ? null : (
+              <Progress multi className={classes.ProgressBar}>
+                <Progress bar value={articleScore} color="success" />
+                <Progress bar value={100 - articleScore} color="danger" />
+              </Progress>
+            )}
+
+            <div className={classes.Info}>
+              {isNaN(articleScore) ? (
+                <Badge
+                  style={{
+                    color: "#3b3b3b",
+                    marginRight: 4,
+                    borderRadius: 5,
+                    backgroundColor: "#d2d9d9",
+                  }}
+                  color="light"
+                >
+                  Not Rated
+                </Badge>
+              ) : (
+                <Badge
+                  style={{
+                    color: "#3b3b3b",
+                    marginRight: 4,
+                    borderRadius: 5,
+                    backgroundColor: "#d2d9d9",
+                  }}
+                  color="light"
+                >
+                  {Math.round(articleScore)} %
+                </Badge>
+              )}
+              {props.data.commentCount ? (
+                <Badge
+                  style={{
+                    color: "#3b3b3b",
+                    marginRight: 4,
+                    borderRadius: 5,
+                    backgroundColor: "#d2d9d9",
+                  }}
+                  color="light"
+                >
+                  R: {props.data.commentCount}
+                </Badge>
+              ) : (
+                <Badge
+                  style={{
+                    color: "#3b3b3b",
+                    marginRight: 4,
+                    borderRadius: 5,
+                    backgroundColor: "#d2d9d9",
+                  }}
+                  color="light"
+                >
+                  No Replies
+                </Badge>
+              )}
+              <Badge
+                style={{
+                  color: "#3b3b3b",
+                  marginRight: 4,
+                  borderRadius: 5,
+                  backgroundColor: "#d2d9d9",
+                }}
+                color="light"
+              >
+                P: {props.data.createUserID.slice(0, 7)}
+              </Badge>
+              <Badge
+                style={{
+                  color: "#3b3b3b",
+                  marginRight: 4,
+                  borderRadius: 5,
+                  backgroundColor: "#d2d9d9",
+                }}
+                color="light"
+              >
                 {timeStampToString(props.data.createDate.seconds)}
               </Badge>
             </div>

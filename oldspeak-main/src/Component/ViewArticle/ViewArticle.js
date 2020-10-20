@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import classes from "./ViewArticle.module.css";
 import { withRouter } from "react-router-dom";
 import parse from "html-react-parser";
-import { Container, Badge, Row, Col } from "reactstrap";
+import { Container, Badge, Row, Col, Progress } from "reactstrap";
 import firebase from "../../Config/firebase";
 
 //firebase ref
@@ -131,6 +131,12 @@ class ViewArticle extends Component {
                   {parse(this.state.article.content)}
                 </div>
               </div>
+              {isNaN(articleScore) ? null : (
+                <Progress multi className={classes.ProgressBar}>
+                  <Progress bar value={articleScore} color="success" />
+                  <Progress bar value={100 - articleScore} color="danger" />
+                </Progress>
+              )}
               <div className={classes.Info}>
                 {" "}
                 {isNaN(articleScore) ? (

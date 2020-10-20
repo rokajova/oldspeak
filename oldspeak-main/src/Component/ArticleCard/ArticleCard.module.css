@@ -21,7 +21,6 @@
   font-size: 18px;
   font-family: Arial, Helvetica, sans-serif;
   padding: 0 0 0 3px;
-  border-top: 1px solid lightgray;
 }
 
 .Title {
@@ -66,4 +65,8 @@
 .HorLine {
   border-top: 1px solid silver;
   width: 5rem;
+}
+
+.ProgressBar {
+  height: 2px !important;
 }
