@@ -1,21 +1,12 @@
 import React, { Component } from "react";
 import {
   Container,
-  Row,
-  Col,
-  Card,
-  CardHeader,
-  CardBody,
   FormGroup,
-  Label,
   Input,
   Alert,
   Button,
-  Form,
   Modal,
-  ModalHeader,
   ModalBody,
-  ModalFooter,
 } from "reactstrap";
 import classes from "./NewComment.module.css";
 import ReactQuill from "react-quill";
@@ -46,6 +37,7 @@ class NewComment extends Component {
       isModalOpen: false,
       isVerified: false,
       hasFeatureImage: false,
+      isImageWarningOpen: false,
 
       comment: {
         commentID: "",
@@ -253,7 +245,8 @@ class NewComment extends Component {
             success: true,
             data: { link: downloadURL },
           });
-        });
+        })
+        .catch((err) => this.setState({ isImageWarningOpen: true }));
     });
   };
 
@@ -327,6 +320,13 @@ class NewComment extends Component {
                 ""
               )}
             </FormGroup>{" "}
+            <Alert
+              isOpen={this.state.isImageWarningOpen}
+              toggle={() => this.setState({ isImageWarningOpen: false })}
+              color="warning"
+            >
+              File too large! Must be {">"}10MB
+            </Alert>
             <FormGroup
               style={{ overflow: "inherit", backgroundColor: "white" }}
             >

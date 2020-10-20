@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Row, Col, FormGroup, Input, Button } from "reactstrap";
+import { FormGroup, Input, Button, Alert } from "reactstrap";
 import Recaptcha from "react-recaptcha";
 import classes from "./NewArticle.module.css";
 import { withRouter } from "react-router-dom";
@@ -22,6 +22,8 @@ class NewArticle extends Component {
     this.reactQuillRef = null;
 
     this.state = {
+      isImageWarningOpen: false,
+
       isVerified: false,
       article: {
         title: "",
@@ -240,7 +242,8 @@ class NewArticle extends Component {
             success: true,
             data: { link: downloadURL },
           });
-        });
+        })
+        .catch((err) => this.setState({ isImageWarningOpen: true }));
     });
   };
 
@@ -300,6 +303,13 @@ class NewArticle extends Component {
             ""
           )}
         </FormGroup>
+        <Alert
+          isOpen={this.state.isImageWarningOpen}
+          toggle={() => this.setState({ isImageWarningOpen: false })}
+          color="warning"
+        >
+          File too large! Must be {">"}10MB
+        </Alert>
         <FormGroup>
           <Input
             style={{ borderRadius: 0 }}
