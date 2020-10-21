@@ -1,10 +1,9 @@
-import React, { Component, StrictMode } from "react";
+import React, { Component } from "react";
 import {
   Navbar,
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
   NavbarToggler,
   UncontrolledDropdown,
   DropdownToggle,
@@ -13,7 +12,6 @@ import {
   Button,
   Collapse,
   Modal,
-  ModalHeader,
   ModalBody,
   ModalFooter,
 } from "reactstrap";
@@ -40,7 +38,7 @@ class Heading extends Component {
         .auth()
         .currentUser.getIdTokenResult()
         .then((claim) => {
-          console.log(claim);
+          console.log("auth success!");
         });
     }
   }

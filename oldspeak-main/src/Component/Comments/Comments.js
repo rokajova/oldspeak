@@ -23,7 +23,7 @@ class Comments extends Component {
   //no limit yet
 
   getMyComments = () => {
-    const aid = this.props.location.pathname.slice(9);
+    const aid = this.props.location.pathname.slice(7);
 
     db.collection("Articles")
       .doc(aid)

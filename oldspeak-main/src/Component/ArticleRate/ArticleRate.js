@@ -22,14 +22,14 @@ class ArticleRate extends Component {
       if (
         doc
           .data()
-          .positiveRatings.includes(this.props.location.pathname.slice(9))
+          .positiveRatings.includes(this.props.location.pathname.slice(7))
       ) {
         this.setState({ hasRatedPositive: true, hasLoaded: true });
       }
       if (
         doc
           .data()
-          .negativeRatings.includes(this.props.location.pathname.slice(9))
+          .negativeRatings.includes(this.props.location.pathname.slice(7))
       ) {
         this.setState({ hasRatedNegative: true, hasLoaded: true });
       } else {
@@ -43,22 +43,21 @@ class ArticleRate extends Component {
     const userRef = db.collection("Users").doc(this.props.auth.uid);
     const articleRef = db
       .collection("Articles")
-      .doc(this.props.location.pathname.slice(9));
+      .doc(this.props.location.pathname.slice(7));
 
     return userRef.onSnapshot((doc) => {
       //check if user has voted
       if (
         doc
           .data()
-          .positiveRatings.includes(this.props.location.pathname.slice(9)) ||
+          .positiveRatings.includes(this.props.location.pathname.slice(7)) ||
         doc
           .data()
-          .negativeRatings.includes(this.props.location.pathname.slice(9))
+          .negativeRatings.includes(this.props.location.pathname.slice(7))
       ) {
         this.setState({
           hasRatedPositive: true,
         });
-        console.log("You already rated this article");
       }
 
       //if user hasnt voted, update voted articles array with the vote
@@ -67,7 +66,7 @@ class ArticleRate extends Component {
           .update({
             positiveRatings: [
               ...doc.data().positiveRatings,
-              this.props.location.pathname.slice(9),
+              this.props.location.pathname.slice(7),
             ],
           })
           .then(() => {
@@ -84,22 +83,21 @@ class ArticleRate extends Component {
     const userRef = db.collection("Users").doc(this.props.auth.uid);
     const articleRef = db
       .collection("Articles")
-      .doc(this.props.location.pathname.slice(9));
+      .doc(this.props.location.pathname.slice(7));
 
     return userRef.onSnapshot((doc) => {
       //check if user has voted
       if (
         doc
           .data()
-          .positiveRatings.includes(this.props.location.pathname.slice(9)) ||
+          .positiveRatings.includes(this.props.location.pathname.slice(7)) ||
         doc
           .data()
-          .negativeRatings.includes(this.props.location.pathname.slice(9))
+          .negativeRatings.includes(this.props.location.pathname.slice(7))
       ) {
         this.setState({
           hasRatedNegative: true,
         });
-        console.log("You already rated this article");
       }
 
       //update voted articles array
@@ -108,7 +106,7 @@ class ArticleRate extends Component {
           .update({
             negativeRatings: [
               ...doc.data().negativeRatings,
-              this.props.location.pathname.slice(9),
+              this.props.location.pathname.slice(7),
             ],
           })
           .then(() => {

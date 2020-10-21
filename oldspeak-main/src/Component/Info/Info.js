@@ -288,7 +288,15 @@ const Info = (props) => {
         </TabPane>
         <TabPane tabId="3">
           <Row>
-            <Col sm="12"></Col>
+            <Col sm="12">
+              {" "}
+              <div className={classes.ModalInfoContent}>
+                <p style={{ margin: "4px" }}>
+                  <strong>October ??, 2020.</strong> <br />
+                  Website launch.
+                </p>{" "}
+              </div>
+            </Col>
           </Row>
         </TabPane>
       </TabContent>

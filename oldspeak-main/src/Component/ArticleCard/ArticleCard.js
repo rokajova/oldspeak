@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import classes from "./ArticleCard.module.css";
 import parse from "html-react-parser";
 import { Link } from "react-router-dom";
-import firebase from "../../Config/firebase";
 
 export function timeStampToString(ts) {
   const date = new Date(ts * 1000);
@@ -146,7 +145,7 @@ const ArticleCard = (props) => {
           <Link
             style={{ textDecoration: "none" }}
             to={{
-              pathname: "article/" + props.data.id,
+              pathname: "think/" + props.data.id,
               state: { article: props.data },
             }}
           >

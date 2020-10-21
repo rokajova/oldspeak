@@ -120,7 +120,6 @@ class NewComment extends Component {
         content: value,
       },
     });
-    console.log(this.state.comment.content);
   };
 
   //recaptcha verify
@@ -141,7 +140,7 @@ class NewComment extends Component {
 
   //add doc to Articles/Comments collection, then redirect to home
   submitComment = () => {
-    const aid = window.location.pathname.slice(9);
+    const aid = window.location.pathname.slice(7);
     this.state.comment.createUserID = firebase.auth().currentUser.uid;
 
     this.setState(
@@ -220,10 +219,10 @@ class NewComment extends Component {
             featureImage: "",
           },
         });
-        console.log("file deleted!" + this.state.comment.featureImage);
+        console.log("file deleted!");
       })
       .catch(function (error) {
-        console.log("nothing to delete!");
+        console.log("cannot delete file!");
       });
   };
 
@@ -296,10 +295,7 @@ class NewComment extends Component {
                         featureImage: uploadState.data.link,
                       },
                     });
-                    console.log(
-                      "Comment Image has been uploaded to:" +
-                        uploadState.data.link
-                    );
+                    console.log("Image uploaded!");
                   }
                 }}
               ></Input>

@@ -141,7 +141,7 @@ class NewArticle extends Component {
     db.collection("Articles")
       .add(article)
       .then((res) => {
-        console.log(res);
+        console.log("Think uploaded!");
       })
       .catch((err) => console.log(err));
     this.props.history.push("/");
@@ -217,10 +217,10 @@ class NewArticle extends Component {
             featureImage: "",
           },
         });
-        console.log("file deleted!" + this.state.article.featureImage);
+        console.log("file deleted!");
       })
       .catch(function (error) {
-        console.log("nothing to delete!");
+        console.log("cannot delete file!");
       });
   };
 
@@ -282,7 +282,7 @@ class NewArticle extends Component {
                   },
                 });
               }
-              console.log("Image uploaded to firebase" + uploadState.data.link);
+              console.log("Image uploaded!");
             }}
           ></Input>
 

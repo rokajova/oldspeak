@@ -7,13 +7,11 @@ import {
   Redirect,
 } from "react-router-dom";
 import ViewArticle from "../ViewArticle/ViewArticle";
-import NewArticle from "../NewArticle/NewArticle";
 import NewComment from "../NewComment/NewComment";
 import ArticleRate from "../ArticleRate/ArticleRate";
 import Main from "../Main/Main";
 import Heading from "../Heading/Heading";
 import Comments from "../Comments/Comments";
-import LoginPage from "../LoginPage/LoginPage";
 import { connect } from "react-redux";
 import * as firebase from "firebase";
 
@@ -78,22 +76,22 @@ class RouterManager extends Component {
             <Route exact path="/">
               <Main />
             </Route>
-            <Route path="/article/:id">
+            <Route path="/think/:id">
               <Route
-                path="/article/:id"
+                path="/think/:id"
                 component={AdminOnly(ViewArticle, this.props.auth)}
               />
               <Route
-                path="/article/:id"
+                path="/think/:id"
                 component={AdminOnly(ArticleRate, this.props.auth)}
               />
 
               <Route
-                path="/article/:id"
+                path="/think/:id"
                 component={AdminOnly(Comments, this.props.auth)}
               />
               <Route
-                path="/article/:id"
+                path="/think/:id"
                 component={AdminOnly(NewComment, this.props.auth)}
               />
             </Route>
