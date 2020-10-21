@@ -60,11 +60,18 @@ class Heading extends Component {
       <div>
         {this.props.auth.isLoaded && (
           <Navbar className={classes.Navbar} expand="xs" fixed="top">
-            <NavbarBrand style={{ marginRight: 0 }} href="/">
+            <NavbarBrand
+              style={{
+                marginRight: "6px",
+                paddingTop: "1px",
+                borderRight: "1px solid silver",
+              }}
+              href="/"
+            >
               {" "}
               <img
                 className={classes.Logo}
-                src="https://firebasestorage.googleapis.com/v0/b/oldspeak-56bd3.appspot.com/o/Logo.png?alt=media&token=19be2e08-aeb8-43b7-8f20-55e7665768b7"
+                src="https://firebasestorage.googleapis.com/v0/b/oldspeak-56bd3.appspot.com/o/Logo.png?alt=media&token=6e168b6d-7061-4029-a195-86226c1966f1"
               />
             </NavbarBrand>
             <Nav navbar>

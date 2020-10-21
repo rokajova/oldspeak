@@ -189,7 +189,7 @@ const Info = (props) => {
                   </mark>{" "}
                   3 times, the rating score would be 70%. Rating score is
                   visible as a progress bar and a badge under a tink. A unique
-                  name may only rate a think once!
+                  name may only rate a think once.
                 </p>
               </div>
               <div className={classes.ModalInfoContent}>
@@ -270,8 +270,8 @@ const Info = (props) => {
               </div>
               <div className={classes.ModalInfoContent}>
                 <p style={{ margin: "4px" }}>
-                  <strong>8.</strong> If you find an exploit for this website,
-                  please contact me{" "}
+                  <strong>8.</strong> If you find a bug or an exploit for this
+                  website, please contact me{" "}
                   <mark
                     style={{
                       backgroundColor: "#d2d9d9",
@@ -291,9 +291,57 @@ const Info = (props) => {
             <Col sm="12">
               {" "}
               <div className={classes.ModalInfoContent}>
+                <h4
+                  style={{
+                    borderBottom: "1px solid silver",
+                    paddingLeft: "4px",
+                  }}
+                >
+                  <strong>October 21, 2020.</strong> Oldspeak.me launch!
+                </h4>{" "}
                 <p style={{ margin: "4px" }}>
-                  <strong>October ??, 2020.</strong> <br />
-                  Website launch.
+                  Welcome! However you found this website, I was waiting for you
+                  and I'm glad you made it. Please check out the{" "}
+                  <mark
+                    style={{
+                      backgroundColor: "#d2d9d9",
+                      fontFamily: "monospace",
+                      color: "blue",
+                    }}
+                    onClick={() => {
+                      toggle("1");
+                    }}
+                  >
+                    FAQ
+                  </mark>{" "}
+                  and{" "}
+                  <mark
+                    style={{
+                      backgroundColor: "#d2d9d9",
+                      fontFamily: "monospace",
+                      color: "blue",
+                    }}
+                    onClick={() => {
+                      toggle("2");
+                    }}
+                  >
+                    Rules
+                  </mark>{" "}
+                  if you have any questions.
+                  <br />I am still working on the website and always looking to
+                  add new features whenever I can. This is far from a finished
+                  product, at least in my eyes. I am also always open to
+                  suggestions as to how to improve this website so if you have
+                  any ideas, just contact me{" "}
+                  <mark
+                    style={{
+                      backgroundColor: "#d2d9d9",
+                      fontFamily: "monospace",
+                    }}
+                  >
+                    contact@oldspeak.me
+                  </mark>{" "}
+                  . Thank you for using this website!
                 </p>{" "}
               </div>
             </Col>

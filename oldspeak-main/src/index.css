@@ -5,7 +5,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background: url(./oldspeakbackground.png) no-repeat;
+  background: url(./img/oldspeakbackground.png) no-repeat;
   background-attachment: fixed;
   background-size: cover;
   background-position: bottom;

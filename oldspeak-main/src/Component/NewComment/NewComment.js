@@ -145,6 +145,7 @@ class NewComment extends Component {
 
     this.setState(
       {
+        isVerified: false,
         hasFeatureImage: false,
         comment: {
           ...this.state.comment,
@@ -383,7 +384,10 @@ class NewComment extends Component {
                 }}
                 color="danger"
                 onClick={() =>
-                  this.setState({ isModalOpen: !this.state.isModalOpen })
+                  this.setState({
+                    isModalOpen: !this.state.isModalOpen,
+                    isVerified: false,
+                  })
                 }
               >
                 {" "}

@@ -13,7 +13,7 @@ class Main extends Component {
     this.state = {
       isLoaded: false,
       articles: [],
-      limit: 5,
+      limit: 15,
       lastArticle: null,
       orderBy: "createDate",
       buttonDisabled: false,
