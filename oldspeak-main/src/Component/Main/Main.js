@@ -114,18 +114,22 @@ class Main extends Component {
           {this.state.buttonDisabled ? (
             <Button
               size="sm"
-              outline
               color="dark"
-              style={{ borderRadius: 0 }}
+              style={{
+                borderRadius: 0,
+                fontFamily: "monospace",
+              }}
               disabled
             >
-              Show 1 more...
+              <strong>SHOW 1 MORE...</strong>
             </Button>
           ) : (
             <Button
-              outline
               color="dark"
-              style={{ borderRadius: 0, fontFamily: "monospace" }}
+              style={{
+                borderRadius: 0,
+                fontFamily: "monospace",
+              }}
               onClick={() => this.nextArticle()}
             >
               <strong>SHOW 1 MORE...</strong>

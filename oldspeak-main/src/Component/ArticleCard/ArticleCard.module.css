@@ -6,10 +6,11 @@
   background-color: #eff1f1;
   box-shadow: 0px 0px 0px #3b3b3b;
   border-radius: 10px;
+  box-shadow: 0px 0px 9px -5px #3b3b3b;
 }
 
 .ViewArticleContainer:hover {
-  box-shadow: 0px 0px 12px -3px #3b3b3b;
+  box-shadow: 0px 0px 10px -3px #3b3b3b;
   transition: 0.5s;
 }
 

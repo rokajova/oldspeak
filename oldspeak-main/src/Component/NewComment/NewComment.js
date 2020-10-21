@@ -402,7 +402,6 @@ class NewComment extends Component {
           {" "}
           <Button
             style={{ borderRadius: 0, fontFamily: "monospace" }}
-            outline
             color="dark"
             onClick={(e) => this.toggleModal()}
           >

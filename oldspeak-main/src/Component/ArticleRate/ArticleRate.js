@@ -138,7 +138,6 @@ class ArticleRate extends Component {
                     width: "6rem",
                     marginRight: "1rem",
                   }}
-                  outline
                   color="success"
                   onClick={() => this.positiveRating()}
                 >
@@ -152,7 +151,6 @@ class ArticleRate extends Component {
                     fontSize: "14px",
                     width: "6rem",
                   }}
-                  outline
                   color="danger"
                   onClick={() => this.negativeRating()}
                 >
