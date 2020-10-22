@@ -188,8 +188,9 @@ const Info = (props) => {
                     BAD
                   </mark>{" "}
                   3 times, the rating score would be 70%. Rating score is
-                  visible as a progress bar and a badge under a tink. A unique
-                  name may only rate a think once.
+                  visible as a progress bar and a badge under a think. A unique
+                  name may only rate a think once. Rating is strongly encouraged
+                  because it helps to measure a thinks quality.
                 </p>
               </div>
               <div className={classes.ModalInfoContent}>
@@ -251,9 +252,9 @@ const Info = (props) => {
               <div className={classes.ModalInfoContent}>
                 <p style={{ margin: "4px" }}>
                   <strong>5.</strong> Do not upload any content containing,
-                  <strong> in any shape or form</strong>, child pornography or
-                  any content of minors under the age of 18 engaging in sexual
-                  acts.
+                  <strong> in any shape or form</strong>, child pornography, any
+                  content of minors under the age of 18 shown as being naked or
+                  engaging in sexual acts.
                 </p>{" "}
               </div>
 
@@ -270,7 +271,7 @@ const Info = (props) => {
               </div>
               <div className={classes.ModalInfoContent}>
                 <p style={{ margin: "4px" }}>
-                  <strong>8.</strong> If you find a bug or an exploit for this
+                  <strong>8.</strong> If you found a bug or an exploit for this
                   website, please contact me{" "}
                   <mark
                     style={{
@@ -301,7 +302,7 @@ const Info = (props) => {
                 </h4>{" "}
                 <p style={{ margin: "4px" }}>
                   Welcome! However you found this website, I was waiting for you
-                  and I'm glad you made it. Please check out the{" "}
+                  and I'm glad you've made it. Please check out the{" "}
                   <mark
                     style={{
                       backgroundColor: "#d2d9d9",
