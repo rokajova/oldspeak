@@ -70,8 +70,8 @@ const Info = (props) => {
                   What is this?
                 </h4>
                 <p style={{ margin: "4px" }}>
-                  A website created to help reduce the increasing spread of
-                  misinformation on the internet.
+                  A website with a mission to help reduce the increasing spread
+                  of misinformation on the internet.
                 </p>{" "}
               </div>
               <div className={classes.ModalInfoContent}>

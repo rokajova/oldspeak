@@ -142,22 +142,22 @@ class ViewArticle extends Component {
                 {isNaN(articleScore) ? (
                   <Badge
                     style={{
+                      color: "#3b3b3b",
                       marginRight: 4,
                       borderRadius: 5,
-                      color: "#3b3b3b",
+                      backgroundColor: "#e9ecec",
                     }}
-                    color="light"
                   >
                     Not Rated
                   </Badge>
                 ) : (
                   <Badge
                     style={{
+                      color: "#3b3b3b",
                       marginRight: 4,
                       borderRadius: 5,
-                      color: "#3b3b3b",
+                      backgroundColor: "#e9ecec",
                     }}
-                    color="light"
                   >
                     {Math.round(articleScore)} %
                   </Badge>
@@ -165,35 +165,43 @@ class ViewArticle extends Component {
                 {this.state.article.commentCount ? (
                   <Badge
                     style={{
+                      color: "#3b3b3b",
                       marginRight: 4,
                       borderRadius: 5,
-                      color: "#3b3b3b",
+                      backgroundColor: "#e9ecec",
                     }}
-                    color="light"
                   >
-                    R: {this.state.article.commentCount}
+                    {this.state.article.commentCount}
                   </Badge>
                 ) : (
                   <Badge
                     style={{
+                      color: "#3b3b3b",
                       marginRight: 4,
                       borderRadius: 5,
-                      color: "#3b3b3b",
+                      backgroundColor: "#e9ecec",
                     }}
-                    color="light"
                   >
-                    No Replies
+                    No Comments
                   </Badge>
                 )}
                 <Badge
-                  style={{ marginRight: 4, borderRadius: 5, color: "#3b3b3b" }}
-                  color="light"
+                  style={{
+                    color: "#3b3b3b",
+                    marginRight: 4,
+                    borderRadius: 5,
+                    backgroundColor: "#e9ecec",
+                  }}
                 >
-                  P: {this.state.article.createUserID.slice(0, 7)}
+                  {this.state.article.createUserID.slice(0, 7)}
                 </Badge>
                 <Badge
-                  style={{ marginRight: 4, borderRadius: 5, color: "#3b3b3b" }}
-                  color="light"
+                  style={{
+                    color: "#3b3b3b",
+                    marginRight: 4,
+                    borderRadius: 5,
+                    backgroundColor: "#e9ecec",
+                  }}
                 >
                   {" "}
                   {this.timeStampToString(

@@ -1,5 +1,5 @@
 import React from "react";
-import { Badge, Container, Tooltip, Progress } from "reactstrap";
+import { Badge, Container, Progress } from "reactstrap";
 import { connect } from "react-redux";
 import classes from "./ArticleCard.module.css";
 import parse from "html-react-parser";
@@ -75,7 +75,6 @@ const ArticleCard = (props) => {
                     borderRadius: 5,
                     backgroundColor: "#d2d9d9",
                   }}
-                  color="light"
                 >
                   Not Rated
                 </Badge>
@@ -87,7 +86,6 @@ const ArticleCard = (props) => {
                     borderRadius: 5,
                     backgroundColor: "#d2d9d9",
                   }}
-                  color="light"
                 >
                   {Math.round(articleScore)} %
                 </Badge>
@@ -100,7 +98,6 @@ const ArticleCard = (props) => {
                     borderRadius: 5,
                     backgroundColor: "#d2d9d9",
                   }}
-                  color="light"
                 >
                   R: {props.data.commentCount}
                 </Badge>
@@ -112,7 +109,6 @@ const ArticleCard = (props) => {
                     borderRadius: 5,
                     backgroundColor: "#d2d9d9",
                   }}
-                  color="light"
                 >
                   No Replies
                 </Badge>
@@ -124,7 +120,6 @@ const ArticleCard = (props) => {
                   borderRadius: 5,
                   backgroundColor: "#d2d9d9",
                 }}
-                color="light"
               >
                 P: {props.data.createUserID.slice(0, 7)}
               </Badge>
@@ -135,7 +130,6 @@ const ArticleCard = (props) => {
                   borderRadius: 5,
                   backgroundColor: "#d2d9d9",
                 }}
-                color="light"
               >
                 {timeStampToString(props.data.createDate.seconds)}
               </Badge>
@@ -179,9 +173,8 @@ const ArticleCard = (props) => {
                     color: "#3b3b3b",
                     marginRight: 4,
                     borderRadius: 5,
-                    backgroundColor: "#d2d9d9",
+                    backgroundColor: "#e9ecec",
                   }}
-                  color="light"
                 >
                   Not Rated
                 </Badge>
@@ -191,9 +184,8 @@ const ArticleCard = (props) => {
                     color: "#3b3b3b",
                     marginRight: 4,
                     borderRadius: 5,
-                    backgroundColor: "#d2d9d9",
+                    backgroundColor: "#e9ecec",
                   }}
-                  color="light"
                 >
                   {Math.round(articleScore)} %
                 </Badge>
@@ -204,11 +196,10 @@ const ArticleCard = (props) => {
                     color: "#3b3b3b",
                     marginRight: 4,
                     borderRadius: 5,
-                    backgroundColor: "#d2d9d9",
+                    backgroundColor: "#e9ecec",
                   }}
-                  color="light"
                 >
-                  R: {props.data.commentCount}
+                  {props.data.commentCount}
                 </Badge>
               ) : (
                 <Badge
@@ -216,11 +207,10 @@ const ArticleCard = (props) => {
                     color: "#3b3b3b",
                     marginRight: 4,
                     borderRadius: 5,
-                    backgroundColor: "#d2d9d9",
+                    backgroundColor: "#e9ecec",
                   }}
-                  color="light"
                 >
-                  No Replies
+                  No Comments
                 </Badge>
               )}
               <Badge
@@ -228,20 +218,18 @@ const ArticleCard = (props) => {
                   color: "#3b3b3b",
                   marginRight: 4,
                   borderRadius: 5,
-                  backgroundColor: "#d2d9d9",
+                  backgroundColor: "#e9ecec",
                 }}
-                color="light"
               >
-                P: {props.data.createUserID.slice(0, 7)}
+                {props.data.createUserID.slice(0, 7)}
               </Badge>
               <Badge
                 style={{
                   color: "#3b3b3b",
                   marginRight: 4,
                   borderRadius: 5,
-                  backgroundColor: "#d2d9d9",
+                  backgroundColor: "#e9ecec",
                 }}
-                color="light"
               >
                 {timeStampToString(props.data.createDate.seconds)}
               </Badge>

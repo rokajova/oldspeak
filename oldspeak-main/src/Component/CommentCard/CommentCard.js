@@ -84,21 +84,21 @@ const CommentCard = (props) => {
               {" "}
               <Badge
                 style={{
+                  color: "#3b3b3b",
                   marginRight: 4,
                   borderRadius: 5,
-                  color: "#3b3b3b",
+                  backgroundColor: "#e9ecec",
                 }}
-                color="light"
               >
-                P: {props.data.createUserID.slice(0, 7)}
+                {props.data.createUserID.slice(0, 7)}
               </Badge>
               <Badge
                 style={{
+                  color: "#3b3b3b",
                   marginRight: 4,
                   borderRadius: 5,
-                  color: "#3b3b3b",
+                  backgroundColor: "#e9ecec",
                 }}
-                color="light"
               >
                 {" "}
                 {timeStampToString(props.data.createDate.seconds)}
