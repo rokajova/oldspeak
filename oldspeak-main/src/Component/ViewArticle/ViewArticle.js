@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import classes from "./ViewArticle.module.css";
 import { withRouter } from "react-router-dom";
 import parse from "html-react-parser";
-import { Container, Badge, Row, Col, Progress } from "reactstrap";
+import { Container, Badge, Row, Col, Progress, Tooltip } from "reactstrap";
 import firebase from "../../Config/firebase";
 
 //firebase ref

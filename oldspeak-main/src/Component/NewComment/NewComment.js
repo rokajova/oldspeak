@@ -205,27 +205,27 @@ class NewComment extends Component {
     });
   };
 
-  //delete feature image uploaded to storage under Comments folder
-  deleteImageCallBack = (e) => {
-    const fileName = this.state.comment.featureImage.slice(84, 120);
-    storageRef
-      .ref()
-      .child("Comments/" + fileName)
-      .delete()
-      .then(() => {
-        this.setState({
-          hasFeatureImage: false,
-          comment: {
-            ...this.state.comment,
-            featureImage: "",
-          },
-        });
-        console.log("file deleted!");
-      })
-      .catch(function (error) {
-        console.log("cannot delete file!");
-      });
-  };
+  //delete feature image uploaded to storage under Comments folder(disabled. Storage rules)
+  // deleteImageCallBack = (e) => {
+  //   const fileName = this.state.comment.featureImage.slice(84, 120);
+  //   storageRef
+  //     .ref()
+  //     .child("Comments/" + fileName)
+  //     .delete()
+  //     .then(() => {
+  //       this.setState({
+  //         hasFeatureImage: false,
+  //         comment: {
+  //           ...this.state.comment,
+  //           featureImage: "",
+  //         },
+  //       });
+  //       console.log("file deleted!");
+  //     })
+  //     .catch(function (error) {
+  //       console.log("cannot delete file!");
+  //     });
+  // };
 
   //upload feature image to storage under Comments folder
   uploadImageCallBack = (e) => {
@@ -306,11 +306,6 @@ class NewComment extends Component {
                   <img
                     src={this.state.comment.featureImage}
                     className={classes.FeatureImg}
-                  />
-                  <Button
-                    close
-                    style={{ fontSize: "40px" }}
-                    onClick={() => this.deleteImageCallBack()}
                   />
                 </header>
               ) : (

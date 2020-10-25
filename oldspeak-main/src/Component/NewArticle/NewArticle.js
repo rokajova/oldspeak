@@ -202,27 +202,27 @@ class NewArticle extends Component {
     };
   };
 
-  //delete feature image uploaded to storage
-  deleteImageCallBack = (e) => {
-    const fileName = this.state.article.featureImage.slice(84, 120);
-    storageRef
-      .ref()
-      .child("Articles/" + fileName)
-      .delete()
-      .then(() => {
-        this.setState({
-          hasFeatureImage: false,
-          article: {
-            ...this.state.article,
-            featureImage: "",
-          },
-        });
-        console.log("file deleted!");
-      })
-      .catch(function (error) {
-        console.log("cannot delete file!");
-      });
-  };
+  //delete feature image uploaded to storage(disabled. Storage rules)
+  // deleteImageCallBack = (e) => {
+  //   const fileName = this.state.article.featureImage.slice(84, 120);
+  //   storageRef
+  //     .ref()
+  //     .child("Articles/" + fileName)
+  //     .delete()
+  //     .then(() => {
+  //       this.setState({
+  //         hasFeatureImage: false,
+  //         article: {
+  //           ...this.state.article,
+  //           featureImage: "",
+  //         },
+  //       });
+  //       console.log("file deleted!");
+  //     })
+  //     .catch(function (error) {
+  //       console.log("cannot delete file!");
+  //     });
+  // };
 
   //upload image to storage under Articles folder
   uploadImageCallBack = (e) => {
@@ -292,11 +292,6 @@ class NewArticle extends Component {
               <img
                 src={this.state.article.featureImage}
                 className={classes.FeatureImg}
-              />
-              <Button
-                close
-                style={{ fontSize: "40px" }}
-                onClick={() => this.deleteImageCallBack()}
               />
             </header>
           ) : (
