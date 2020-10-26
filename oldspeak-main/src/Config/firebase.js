@@ -1,4 +1,5 @@
 import * as firebase from "firebase";
+import "firebase/analytics";
 // firebase informacija
 const firebaseConfig = {
   apiKey: "AIzaSyB7wDHjK6qVAYMjh3GDF47NFOpZDZGAv4k",
@@ -12,7 +13,7 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-
 firebase.firestore();
+firebase.analytics();
 
 export default firebase;
