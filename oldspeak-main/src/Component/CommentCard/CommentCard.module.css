@@ -22,10 +22,10 @@
 }
 
 .ImageEnlarged {
-  max-width: 918px;
   width: 100%;
-  max-height: 918px;
   height: 100%;
+  max-width: 918px;
+  max-height: 918px;
   transition: 0.5s;
 }
 

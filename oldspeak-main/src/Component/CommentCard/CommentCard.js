@@ -55,8 +55,29 @@ const CommentCard = (props) => {
               {props.data.featureImage !== "" ? (
                 <div className={classes.ImageContainer}>
                   {clicked ? (
+                    props.data.featureExtension.includes("image") ? (
+                      <img
+                        className={classes.ImageEnlarged}
+                        src={props.data.featureImage}
+                        alt={props.data.title}
+                        onClick={() => {
+                          setClicked(!clicked);
+                        }}
+                      />
+                    ) : (
+                      <video
+                        controls
+                        className={classes.ImageEnlarged}
+                        src={props.data.featureImage}
+                        alt={props.data.title}
+                        onClick={() => {
+                          setClicked(!clicked);
+                        }}
+                      />
+                    )
+                  ) : props.data.featureExtension.includes("image") ? (
                     <img
-                      className={classes.ImageEnlarged}
+                      className={classes.Image}
                       src={props.data.featureImage}
                       alt={props.data.title}
                       onClick={() => {
@@ -64,7 +85,7 @@ const CommentCard = (props) => {
                       }}
                     />
                   ) : (
-                    <img
+                    <video
                       className={classes.Image}
                       src={props.data.featureImage}
                       alt={props.data.title}

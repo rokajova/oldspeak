@@ -30,6 +30,7 @@ class NewArticle extends Component {
         content: "",
         createDate: new Date(),
         featureImage: "",
+        featureExtension: "",
         positiveRatings: 0,
         negativeRatings: 0,
         createUserID: "",
@@ -174,33 +175,33 @@ class NewArticle extends Component {
   };
 
   //upload image react quill (disabled)
-  quillImageCallBack = () => {
-    const input = document.createElement("input");
-    input.setAttribute("type", "file");
-    input.setAttribute("accept", "image/*");
-    input.click();
+  // quillImageCallBack = () => {
+  //   const input = document.createElement("input");
+  //   input.setAttribute("type", "file");
+  //   input.setAttribute("accept", "image/*");
+  //   input.click();
 
-    input.onchange = async () => {
-      const file = input.files[0];
-      const compressState = await this.fileCompress(file);
-      if (compressState.success) {
-        const fileName = uuidv4();
-        storageRef
-          .ref()
-          .child("Articles/" + fileName)
-          .put(compressState.file)
-          .then(async (snapshot) => {
-            const downloadURL = await storageRef
-              .ref()
-              .child("Articles/" + fileName)
-              .getDownloadURL();
-            let quill = this.quill.getEditor();
-            const range = quill.getSelection(true);
-            quill.insertEmbed(range.index, "image", downloadURL);
-          });
-      }
-    };
-  };
+  //   input.onchange = async () => {
+  //     const file = input.files[0];
+  //     const compressState = await this.fileCompress(file);
+  //     if (compressState.success) {
+  //       const fileName = uuidv4();
+  //       storageRef
+  //         .ref()
+  //         .child("Articles/" + fileName)
+  //         .put(compressState.file)
+  //         .then(async (snapshot) => {
+  //           const downloadURL = await storageRef
+  //             .ref()
+  //             .child("Articles/" + fileName)
+  //             .getDownloadURL();
+  //           let quill = this.quill.getEditor();
+  //           const range = quill.getSelection(true);
+  //           quill.insertEmbed(range.index, "image", downloadURL);
+  //         });
+  //     }
+  //   };
+  // };
 
   //delete feature image uploaded to storage(disabled. Storage rules)
   // deleteImageCallBack = (e) => {
@@ -238,12 +239,18 @@ class NewArticle extends Component {
             .ref()
             .child("Articles/" + fileName)
             .getDownloadURL();
+          const extension = await storageRef
+            .ref()
+            .child("Articles/" + fileName)
+            .getMetadata();
           resolve({
             success: true,
-            data: { link: downloadURL },
+            data: { link: downloadURL, fileExtension: extension.contentType },
           });
         })
-        .catch((err) => this.setState({ isImageWarningOpen: true }));
+        .catch((err) =>
+          this.setState({ isImageWarningOpen: true }, () => console.log(err))
+        );
     });
   };
 
@@ -269,7 +276,7 @@ class NewArticle extends Component {
         <FormGroup>
           <Input
             type="file"
-            accept="image/*"
+            accept="image/*,video/*"
             className={classes.ImageUploader}
             onChange={async (e) => {
               const uploadState = await this.uploadImageCallBack(e);
@@ -279,20 +286,28 @@ class NewArticle extends Component {
                   article: {
                     ...this.state.article,
                     featureImage: uploadState.data.link,
+                    featureExtension: uploadState.data.fileExtension,
                   },
                 });
               }
-              console.log("Image uploaded!");
+              console.log("Feature file uploaded!");
             }}
           ></Input>
 
           {this.state.hasFeatureImage ? (
             <header className={classes.ImageUploaded}>
-              {" "}
-              <img
-                src={this.state.article.featureImage}
-                className={classes.FeatureImg}
-              />
+              {this.state.article.featureExtension.includes("image") && (
+                <img
+                  src={this.state.article.featureImage}
+                  className={classes.FeatureImg}
+                />
+              )}
+              {this.state.article.featureExtension.includes("video") && (
+                <video
+                  src={this.state.article.featureImage}
+                  className={classes.FeatureImg}
+                />
+              )}
             </header>
           ) : (
             ""

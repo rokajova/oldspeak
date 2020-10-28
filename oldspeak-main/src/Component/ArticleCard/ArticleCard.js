@@ -49,11 +49,20 @@ const ArticleCard = (props) => {
                 <header className={classes.Title}>{props.data.title}</header>
               </div>
               <div className={classes.ImageContainer}>
-                <img
-                  className={classes.Image}
-                  src={props.data.featureImage}
-                  alt="Feature Image"
-                />
+                {props.data.featureExtension.includes("image") && (
+                  <img
+                    className={classes.Image}
+                    src={props.data.featureImage}
+                    alt=": ("
+                  />
+                )}
+                {props.data.featureExtension.includes("video") && (
+                  <video
+                    className={classes.Image}
+                    src={props.data.featureImage}
+                    alt=": ("
+                  />
+                )}
               </div>
 
               <div className={classes.ArticleMain}>
@@ -148,11 +157,21 @@ const ArticleCard = (props) => {
                 <header className={classes.Title}>{props.data.title}</header>
               </div>
               <div className={classes.ImageContainer}>
-                <img
-                  className={classes.Image}
-                  src={props.data.featureImage}
-                  alt="Feature Image"
-                />
+                {props.data.featureExtension.includes("image") && (
+                  <img
+                    className={classes.Image}
+                    src={props.data.featureImage}
+                    alt=": ("
+                  />
+                )}
+                {props.data.featureExtension.includes("video") && (
+                  <video
+                    controls
+                    className={classes.Image}
+                    src={props.data.featureImage}
+                    alt=": ("
+                  />
+                )}
               </div>
 
               <div className={classes.ArticleMain}>
