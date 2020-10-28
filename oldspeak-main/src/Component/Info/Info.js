@@ -291,16 +291,30 @@ const Info = (props) => {
           <Row>
             <Col sm="12">
               {" "}
-              <div className={classes.ModalInfoContent}>
+              <div className={classes.ModalNewsContent}>
                 <h4
                   style={{
+                    position: "relative",
                     borderBottom: "1px solid silver",
                     paddingLeft: "4px",
                   }}
                 >
-                  <strong>October 21, 2020.</strong> Oldspeak.me launch!
+                  <strong> Oldspeak.me launch! </strong>
+                  <i
+                    style={{
+                      bottom: 0,
+                      right: 0,
+                      position: "absolute",
+                      fontSize: "14px",
+                      color: "gray",
+                      paddingRight: "2px",
+                    }}
+                  >
+                    October 21st, 2020
+                  </i>
                 </h4>{" "}
                 <p style={{ margin: "4px" }}>
+                  <i>October 21, 2020.</i>
                   Welcome! However you found this website, I was waiting for you
                   and I'm glad you've made it. Please check out the{" "}
                   <mark
@@ -343,6 +357,51 @@ const Info = (props) => {
                     contact@oldspeak.me
                   </mark>{" "}
                   . Thank you for using this website!
+                </p>{" "}
+              </div>
+              <div className={classes.ModalNewsContent}>
+                <h4
+                  style={{
+                    position: "relative",
+                    borderBottom: "1px solid silver",
+                    paddingLeft: "4px",
+                  }}
+                >
+                  <strong>Video support in think and comments.</strong>
+                  <i
+                    style={{
+                      bottom: 0,
+                      right: 0,
+                      position: "absolute",
+                      fontSize: "14px",
+                      color: "gray",
+                      paddingRight: "2px",
+                    }}
+                  >
+                    October 28th, 2020
+                  </i>
+                </h4>{" "}
+                <p style={{ margin: "4px" }}>
+                  Hey thinkers! As promised in{" "}
+                  <a
+                    href="https://oldspeak.me/think/bzv0l6ybumgalfkbHjPX"
+                    style={{
+                      backgroundColor: "#d2d9d9",
+                      fontFamily: "monospace",
+                      color: "blue",
+                    }}
+                  >
+                    this think
+                  </a>
+                  , I have been working on adding new features to the website.
+                  I'm happy to announce that from today you can upload videos
+                  aswell as images! Keep in mind that although most video
+                  formats are acceptable, the maximum file size of both image or
+                  video files may not be greater than 10MB. This limitation is a
+                  subject to change if I see a demand for larger files.
+                  <br /> Also I made some minor quality of life changes to
+                  improve the usability of the website. More updates are coming
+                  so stay tuned and thank you!{" "}
                 </p>{" "}
               </div>
             </Col>
