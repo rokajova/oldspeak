@@ -314,7 +314,6 @@ const Info = (props) => {
                   </i>
                 </h4>{" "}
                 <p style={{ margin: "4px" }}>
-                  <i>October 21, 2020.</i>
                   Welcome! However you found this website, I was waiting for you
                   and I'm glad you've made it. Please check out the{" "}
                   <mark
@@ -367,7 +366,7 @@ const Info = (props) => {
                     paddingLeft: "4px",
                   }}
                 >
-                  <strong>Video support in think and comments.</strong>
+                  <strong>Video support in thinks and comments.</strong>
                   <i
                     style={{
                       bottom: 0,
@@ -382,7 +381,7 @@ const Info = (props) => {
                   </i>
                 </h4>{" "}
                 <p style={{ margin: "4px" }}>
-                  Hey thinkers! As promised in{" "}
+                  As promised in{" "}
                   <a
                     href="https://oldspeak.me/think/bzv0l6ybumgalfkbHjPX"
                     style={{
