@@ -56,3 +56,17 @@
   height: 0.5rem;
   width: 0px;
 }
+
+.ReplyButton {
+  cursor: pointer;
+  width: 1.6em;
+  fill: silver;
+  float: right;
+}
+.ReplyButton:hover {
+  cursor: pointer;
+  width: 1.6em;
+  fill: currentColor;
+  float: right;
+  transition: 0.7s;
+}

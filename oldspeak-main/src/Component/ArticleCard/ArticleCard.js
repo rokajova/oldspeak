@@ -154,7 +154,9 @@ const ArticleCard = (props) => {
           >
             <div className={classes.Article}>
               <div className={classes.ArticleInfo}>
-                <header className={classes.Title}>{props.data.title}</header>
+                <header className={classes.Title}>
+                  <strong>{props.data.title}</strong>
+                </header>
               </div>
               <div className={classes.ImageContainer}>
                 {props.data.featureExtension.includes("image") && (

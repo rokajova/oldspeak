@@ -106,7 +106,7 @@ class ViewArticle extends Component {
               {" "}
               <div className={classes.TitleDiv}>
                 <header className={classes.Title}>
-                  {this.state.article.title}
+                  <strong>{this.state.article.title}</strong>
                 </header>
               </div>
               <div className={classes.Article}>
