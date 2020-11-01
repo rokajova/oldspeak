@@ -1,18 +1,8 @@
 import React, { useState } from "react";
-import {
-  Card,
-  CardImg,
-  CardTitle,
-  CardSubtitle,
-  CardBody,
-  Badge,
-  Button,
-  Col,
-  Row,
-  Container,
-} from "reactstrap";
+import { Badge, Col, Row, Container, Modal, ModalBody } from "reactstrap";
 import parse from "html-react-parser";
 import classes from "./CommentCard.module.css";
+import NewReply from "../NewReply/NewReply";
 
 export function timeStampToString(ts) {
   const date = new Date(ts * 1000);
@@ -23,7 +13,25 @@ export function timeStampToString(ts) {
 
 const CommentCard = (props) => {
   //feature image enlarged hook
-  const [clicked, setClicked] = useState(false);
+  const [featureImageClicked, setFeatureImageClicked] = useState(false);
+  //reply modal toggle hook
+  const [isReplyModalOpen, setIsReplyModalOpen] = useState(false);
+  //reply content hook
+  const [replyContent, setReplyContent] = useState(props.data.content);
+  //reply feature image hook
+  const [replyFeatureImage, setReplyFeatureImage] = useState(
+    props.data.featureImage
+  );
+  //reply feature image extension (JSX conditional rendering)
+  const [replyFeatureExtension, setReplyFeatureExtension] = useState(
+    props.data.featureExtension
+  );
+
+  const [replyCreateUserID, setReplyCreateUserID] = useState(
+    props.data.createUserID
+  );
+
+  const [replyCreateDate, setReplyCreateDate] = useState(props.data.createDate);
 
   timeStampToString = (ts) => {
     const date = new Date(ts * 1000);
@@ -44,24 +52,28 @@ const CommentCard = (props) => {
       date.getSeconds()
     );
   };
+  function removeTags(str) {
+    if (str === null || str === "") return false;
+    else str = str.toString();
+    return str.replace(/(<([^>]+)>)/gi, "");
+  }
   return (
     <div>
       <hr className={classes.VerLine} />
       <Container className={classes.CommentCardContainer}>
         <Row>
           <Col sm="12" md={{ size: 10, offset: 1 }}>
-            {" "}
             <div className={classes.Comment}>
               {props.data.featureImage !== "" ? (
                 <div className={classes.ImageContainer}>
-                  {clicked ? (
+                  {featureImageClicked ? (
                     props.data.featureExtension.includes("image") ? (
                       <img
                         className={classes.ImageEnlarged}
                         src={props.data.featureImage}
                         alt={props.data.title}
                         onClick={() => {
-                          setClicked(!clicked);
+                          setFeatureImageClicked(!featureImageClicked);
                         }}
                       />
                     ) : (
@@ -71,7 +83,7 @@ const CommentCard = (props) => {
                         src={props.data.featureImage}
                         alt={props.data.title}
                         onClick={() => {
-                          setClicked(!clicked);
+                          setFeatureImageClicked(!featureImageClicked);
                         }}
                       />
                     )
@@ -81,7 +93,7 @@ const CommentCard = (props) => {
                       src={props.data.featureImage}
                       alt={props.data.title}
                       onClick={() => {
-                        setClicked(!clicked);
+                        setFeatureImageClicked(!featureImageClicked);
                       }}
                     />
                   ) : (
@@ -90,10 +102,38 @@ const CommentCard = (props) => {
                       src={props.data.featureImage}
                       alt={props.data.title}
                       onClick={() => {
-                        setClicked(!clicked);
+                        setFeatureImageClicked(!featureImageClicked);
                       }}
                     />
                   )}
+                </div>
+              ) : null}
+              {props.data.replyContent || props.data.replyFeatureImage ? (
+                <div className={classes.Reply}>
+                  {" "}
+                  {props.data.replyFeatureImage ? (
+                    <div>
+                      {" "}
+                      {props.data.replyFeatureExtension.includes("image") && (
+                        <img
+                          className={classes.ReplyFeatureImage}
+                          src={props.data.replyFeatureImage}
+                        />
+                      )}
+                      {props.data.replyFeatureExtension.includes("video") && (
+                        <video
+                          controls
+                          className={classes.ReplyFeatureImage}
+                          src={props.data.replyFeatureImage}
+                        />
+                      )}
+                    </div>
+                  ) : null}
+                  {props.data.replyContent ? (
+                    <div style={{ paddingLeft: "4px", paddingRight: "4px" }}>
+                      {parse(props.data.replyContent)}
+                    </div>
+                  ) : null}
                 </div>
               ) : null}
 
@@ -128,6 +168,9 @@ const CommentCard = (props) => {
                 className={classes.ReplyButton}
                 viewBox="0 0 16 13"
                 fill="currentColor"
+                onClick={() => {
+                  setIsReplyModalOpen(!isReplyModalOpen);
+                }}
               >
                 <path
                   fill-rule="evenodd"
@@ -135,6 +178,27 @@ const CommentCard = (props) => {
                 />
               </svg>
             </div>
+            <Modal
+              centered
+              toggle={() => setIsReplyModalOpen(!isReplyModalOpen)}
+              isOpen={isReplyModalOpen}
+            >
+              <ModalBody
+                style={{
+                  maxHeight: "calc(100vh - 210px)",
+                  overflowY: "auto",
+                }}
+              >
+                <NewReply
+                  onReplyToggle={() => setIsReplyModalOpen(!isReplyModalOpen)}
+                  replyContent={replyContent}
+                  replyFeatureImage={replyFeatureImage}
+                  replyFeatureExtension={replyFeatureExtension}
+                  replyCreateUserID={replyCreateUserID}
+                  replyCreateDate={replyCreateDate}
+                />
+              </ModalBody>
+            </Modal>
           </Col>
         </Row>
       </Container>
