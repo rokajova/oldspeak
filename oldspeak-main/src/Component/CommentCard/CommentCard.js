@@ -110,7 +110,6 @@ const CommentCard = (props) => {
               ) : null}
               {props.data.replyContent || props.data.replyFeatureImage ? (
                 <div className={classes.Reply}>
-                  {" "}
                   {props.data.replyFeatureImage ? (
                     <div>
                       {" "}
@@ -134,6 +133,28 @@ const CommentCard = (props) => {
                       {parse(props.data.replyContent)}
                     </div>
                   ) : null}
+                  <div className={classes.ReplyInfo}>
+                    <Badge
+                      style={{
+                        color: "#3b3b3b",
+                        marginRight: 4,
+                        borderRadius: 5,
+                        backgroundColor: "#F1F3F3",
+                      }}
+                    >
+                      {props.data.replyCreateUserID.slice(0, 7)}
+                    </Badge>
+                    <Badge
+                      style={{
+                        color: "#3b3b3b",
+                        marginRight: 4,
+                        borderRadius: 5,
+                        backgroundColor: "#F1F3F3",
+                      }}
+                    >
+                      {timeStampToString(props.data.replyCreateDate.seconds)}
+                    </Badge>
+                  </div>
                 </div>
               ) : null}
 
