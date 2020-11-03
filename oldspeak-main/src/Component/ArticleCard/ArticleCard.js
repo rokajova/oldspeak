@@ -46,7 +46,9 @@ const ArticleCard = (props) => {
           <div>
             <div className={classes.Article}>
               <div className={classes.ArticleInfo}>
-                <header className={classes.Title}>{props.data.title}</header>
+                <header className={classes.Title}>
+                  <strong>{props.data.title}</strong>
+                </header>
               </div>
               <div className={classes.ImageContainer}>
                 {props.data.featureExtension.includes("image") && (
@@ -82,7 +84,7 @@ const ArticleCard = (props) => {
                     color: "#3b3b3b",
                     marginRight: 4,
                     borderRadius: 5,
-                    backgroundColor: "#d2d9d9",
+                    backgroundColor: "#e9ecec",
                   }}
                 >
                   Not Rated
@@ -93,7 +95,7 @@ const ArticleCard = (props) => {
                     color: "#3b3b3b",
                     marginRight: 4,
                     borderRadius: 5,
-                    backgroundColor: "#d2d9d9",
+                    backgroundColor: "#e9ecec",
                   }}
                 >
                   {Math.round(articleScore)} %
@@ -105,7 +107,7 @@ const ArticleCard = (props) => {
                     color: "#3b3b3b",
                     marginRight: 4,
                     borderRadius: 5,
-                    backgroundColor: "#d2d9d9",
+                    backgroundColor: "#e9ecec",
                   }}
                 >
                   R: {props.data.commentCount}
@@ -116,7 +118,7 @@ const ArticleCard = (props) => {
                     color: "#3b3b3b",
                     marginRight: 4,
                     borderRadius: 5,
-                    backgroundColor: "#d2d9d9",
+                    backgroundColor: "#e9ecec",
                   }}
                 >
                   No Replies
@@ -127,7 +129,7 @@ const ArticleCard = (props) => {
                   color: "#3b3b3b",
                   marginRight: 4,
                   borderRadius: 5,
-                  backgroundColor: "#d2d9d9",
+                  backgroundColor: "#e9ecec",
                 }}
               >
                 P: {props.data.createUserID.slice(0, 7)}
@@ -137,7 +139,7 @@ const ArticleCard = (props) => {
                   color: "#3b3b3b",
                   marginRight: 4,
                   borderRadius: 5,
-                  backgroundColor: "#d2d9d9",
+                  backgroundColor: "#e9ecec",
                 }}
               >
                 {timeStampToString(props.data.createDate.seconds)}
