@@ -60,6 +60,7 @@ const ArticleCard = (props) => {
                 )}
                 {props.data.featureExtension.includes("video") && (
                   <video
+                    controls
                     className={classes.Image}
                     src={props.data.featureImage}
                     alt=": ("
