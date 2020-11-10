@@ -38,7 +38,13 @@ const ArticleCard = (props) => {
     (props.data.positiveRatings /
       (props.data.negativeRatings + props.data.positiveRatings)) *
     100;
-
+  function scoreBadgeColor() {
+    if (articleScore <= 50) {
+      return "red";
+    } else {
+      return "green";
+    }
+  }
   return (
     <div>
       <Container className={classes.ViewArticleContainer}>
@@ -79,71 +85,15 @@ const ArticleCard = (props) => {
               </Progress>
             )}
             <div className={classes.Info}>
-              {isNaN(articleScore) ? (
-                <Badge
-                  style={{
-                    color: "#3b3b3b",
-                    marginRight: 4,
-                    borderRadius: 5,
-                    backgroundColor: "#e9ecec",
-                  }}
-                >
-                  Not Rated
-                </Badge>
-              ) : (
-                <Badge
-                  style={{
-                    color: "#3b3b3b",
-                    marginRight: 4,
-                    borderRadius: 5,
-                    backgroundColor: "#e9ecec",
-                  }}
-                >
-                  {Math.round(articleScore)} %
-                </Badge>
-              )}
-              {props.data.commentCount ? (
-                <Badge
-                  style={{
-                    color: "#3b3b3b",
-                    marginRight: 4,
-                    borderRadius: 5,
-                    backgroundColor: "#e9ecec",
-                  }}
-                >
-                  R: {props.data.commentCount}
-                </Badge>
-              ) : (
-                <Badge
-                  style={{
-                    color: "#3b3b3b",
-                    marginRight: 4,
-                    borderRadius: 5,
-                    backgroundColor: "#e9ecec",
-                  }}
-                >
-                  No Replies
-                </Badge>
-              )}
               <Badge
+                color="warning"
                 style={{
                   color: "#3b3b3b",
                   marginRight: 4,
                   borderRadius: 5,
-                  backgroundColor: "#e9ecec",
                 }}
               >
-                P: {props.data.createUserID.slice(0, 7)}
-              </Badge>
-              <Badge
-                style={{
-                  color: "#3b3b3b",
-                  marginRight: 4,
-                  borderRadius: 5,
-                  backgroundColor: "#e9ecec",
-                }}
-              >
-                {timeStampToString(props.data.createDate.seconds)}
+                CREATE A NAME TO VIEW THIS THINK
               </Badge>
             </div>
           </div>
