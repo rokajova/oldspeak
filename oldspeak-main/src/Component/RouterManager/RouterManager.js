@@ -76,6 +76,7 @@ class RouterManager extends Component {
             <Route exact path="/">
               <Main />
             </Route>
+
             <Route path="/think/:id">
               <Route
                 path="/think/:id"
