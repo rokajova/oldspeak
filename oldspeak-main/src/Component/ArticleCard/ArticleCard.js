@@ -38,13 +38,7 @@ const ArticleCard = (props) => {
     (props.data.positiveRatings /
       (props.data.negativeRatings + props.data.positiveRatings)) *
     100;
-  function scoreBadgeColor() {
-    if (articleScore <= 50) {
-      return "red";
-    } else {
-      return "green";
-    }
-  }
+
   return (
     <div>
       <Container className={classes.ViewArticleContainer}>
@@ -93,7 +87,7 @@ const ArticleCard = (props) => {
                   borderRadius: 5,
                 }}
               >
-                CREATE A NAME TO VIEW THIS THINK
+                Create a name to view this Think
               </Badge>
             </div>
           </div>

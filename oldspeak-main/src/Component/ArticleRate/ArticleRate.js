@@ -19,21 +19,22 @@ class ArticleRate extends Component {
     const userRef = db.collection("Users").doc(this.props.auth.uid);
     userRef.get().then((doc) => {
       //check if user has voted
-      if (
-        doc
-          .data()
-          .positiveRatings.includes(this.props.location.pathname.slice(7))
-      ) {
-        this.setState({ hasRatedPositive: true, hasLoaded: true });
-      }
-      if (
-        doc
-          .data()
-          .negativeRatings.includes(this.props.location.pathname.slice(7))
-      ) {
-        this.setState({ hasRatedNegative: true, hasLoaded: true });
-      } else {
+      if (doc.exists) {
         this.setState({ hasLoaded: true });
+        if (
+          doc
+            .data()
+            .positiveRatings.includes(this.props.location.pathname.slice(7))
+        ) {
+          this.setState({ hasRatedPositive: true });
+        }
+        if (
+          doc
+            .data()
+            .negativeRatings.includes(this.props.location.pathname.slice(7))
+        ) {
+          this.setState({ hasRatedNegative: true });
+        }
       }
     });
   }

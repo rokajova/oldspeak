@@ -24,38 +24,38 @@ const AdminOnly = (ComposedComponent, auth) => {
       };
     }
     componentDidMount() {
-      if (!auth.isEmpty) {
-        firebase
-          .auth()
-          .currentUser.getIdTokenResult()
-          .then((getIdTokenResult) => {
-            // if (getIdTokenResult.claims.type === "administrator") {
-            if (!auth.isEmpty) {
-              this.setState({
-                isPass: true,
-              });
-            } else {
-              this.props.history.push("/");
-            }
-          });
-      } else {
-        this.props.history.push("/");
-      }
+      // if (!auth.isEmpty) {
+      //   firebase
+      //     .auth()
+      //     .currentUser.getIdTokenResult()
+      //     .then((getIdTokenResult) => {
+      //       // if (getIdTokenResult.claims.type === "administrator") {
+      //       if (!auth.isEmpty) {
+      //         this.setState({
+      //           isPass: true,
+      //         });
+      //       } else {
+      //         this.props.history.push("/");
+      //       }
+      //     });
+      // } else {
+      //   this.props.history.push("/");
+      // }
     }
     render() {
-      if (this.state.isPass) {
-        return (
-          <div>
-            <ComposedComponent
-              location={this.props.location}
-              history={this.props.history}
-              auth={auth}
-            />
-          </div>
-        );
-      } else {
-        return <div>checking...</div>;
-      }
+      // if (this.state.isPass) {
+      return (
+        <div>
+          <ComposedComponent
+            location={this.props.location}
+            history={this.props.history}
+            auth={auth}
+          />
+        </div>
+      );
+      // } else {
+      //   return <div>checking...</div>;
+      // }
     }
   }
   return AdminOnly;
@@ -71,37 +71,39 @@ class RouterManager extends Component {
     return (
       <div>
         <Heading />
-        {this.props.auth.isLoaded ? (
-          <Switch>
-            <Route exact path="/">
-              <Main />
-            </Route>
+        {/* {this.props.auth.isLoaded ? ( */}
+        <Switch>
+          <Route exact path="/">
+            <Main />
+          </Route>
 
-            <Route path="/think/:id">
-              <Route
-                path="/think/:id"
-                component={AdminOnly(ViewArticle, this.props.auth)}
-              />
+          <Route path="/think/:id">
+            <Route
+              path="/think/:id"
+              component={AdminOnly(ViewArticle, this.props.auth)}
+            />
+            {!this.props.auth.isEmpty && (
               <Route
                 path="/think/:id"
                 component={AdminOnly(ArticleRate, this.props.auth)}
               />
+            )}
 
-              <Route
-                path="/think/:id"
-                component={AdminOnly(Comments, this.props.auth)}
-              />
-              <Route
-                path="/think/:id"
-                component={AdminOnly(NewComment, this.props.auth)}
-              />
-            </Route>
+            <Route
+              path="/think/:id"
+              component={AdminOnly(Comments, this.props.auth)}
+            />
+            <Route
+              path="/think/:id"
+              component={AdminOnly(NewComment, this.props.auth)}
+            />
+          </Route>
 
-            <Route render={() => <Redirect to={{ pathname: "/" }} />} />
-          </Switch>
-        ) : (
+          <Route render={() => <Redirect to={{ pathname: "/" }} />} />
+        </Switch>
+        {/* ) : (
           ""
-        )}
+        )} */}
       </div>
     );
   }
