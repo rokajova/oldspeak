@@ -237,7 +237,7 @@ class ViewArticle extends Component {
         </Container>
       );
     } else {
-      return <div>Loading...</div>;
+      return null;
     }
   }
 }

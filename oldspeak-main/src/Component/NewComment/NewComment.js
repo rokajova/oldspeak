@@ -409,14 +409,25 @@ class NewComment extends Component {
         <hr className={classes.HorLine} />
         <FormGroup style={{ textAlign: "center" }}>
           {" "}
-          <Button
-            style={{ borderRadius: 0, fontFamily: "monospace" }}
-            color="dark"
-            onClick={(e) => this.toggleModal()}
-          >
-            {" "}
-            <strong>CREATE A COMMENT</strong>
-          </Button>
+          {this.props.auth.isEmpty ? (
+            <Button
+              style={{ borderRadius: 0, fontFamily: "monospace" }}
+              color="dark"
+              disabled
+            >
+              {" "}
+              <strong>CREATE A COMMENT</strong>
+            </Button>
+          ) : (
+            <Button
+              style={{ borderRadius: 0, fontFamily: "monospace" }}
+              color="dark"
+              onClick={(e) => this.toggleModal()}
+            >
+              {" "}
+              <strong>CREATE A COMMENT</strong>
+            </Button>
+          )}
         </FormGroup>
 
         {/* componentdidmount attaches refs, need this ghost element to render */}
