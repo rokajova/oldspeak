@@ -42,145 +42,73 @@ const ArticleCard = (props) => {
   return (
     <div>
       <Container className={classes.ViewArticleContainer}>
-        {props.auth.isEmpty ? (
-          <div>
-            <div className={classes.Article}>
-              <div className={classes.ArticleInfo}>
-                <header className={classes.Title}>
-                  <strong>{props.data.title}</strong>
-                </header>
-              </div>
-              <div className={classes.ImageContainer}>
-                {props.data.featureExtension.includes("image") && (
-                  <img
-                    className={classes.Image}
-                    src={props.data.featureImage}
-                    alt=": ("
-                  />
-                )}
-                {props.data.featureExtension.includes("video") && (
-                  <video
-                    controls
-                    className={classes.Image}
-                    src={props.data.featureImage}
-                    alt=": ("
-                  />
-                )}
-              </div>
-
-              <div className={classes.ArticleMain}>
-                {parse(removeTags(props.data.content))}
-              </div>
+        <Link
+          style={{ textDecoration: "none" }}
+          to={{
+            pathname: "think/" + props.data.id,
+            state: { article: props.data },
+          }}
+        >
+          <div className={classes.Article}>
+            <div className={classes.ArticleInfo}>
+              <header className={classes.Title}>
+                <strong>{props.data.title}</strong>
+              </header>
             </div>
-            {isNaN(articleScore) ? null : (
-              <Progress multi className={classes.ProgressBar}>
-                <Progress bar value={articleScore} color="success" />
-                <Progress bar value={100 - articleScore} color="danger" />
-              </Progress>
-            )}
-            <div className={classes.Info}>
-              <Badge
-                color="warning"
-                style={{
-                  color: "#3b3b3b",
-                  marginRight: 4,
-                  borderRadius: 5,
-                }}
-              >
-                Create a name to view this Think
-              </Badge>
+            <div className={classes.ImageContainer}>
+              {props.data.featureExtension.includes("image") && (
+                <img
+                  className={classes.Image}
+                  src={props.data.featureImage}
+                  alt=": ("
+                />
+              )}
+              {props.data.featureExtension.includes("video") && (
+                <video
+                  controls
+                  className={classes.Image}
+                  src={props.data.featureImage}
+                  alt=": ("
+                />
+              )}
+            </div>
+
+            <div className={classes.ArticleMain}>
+              {parse(removeTags(props.data.content))}
             </div>
           </div>
-        ) : (
-          <Link
-            style={{ textDecoration: "none" }}
-            to={{
-              pathname: "think/" + props.data.id,
-              state: { article: props.data },
-            }}
-          >
-            <div className={classes.Article}>
-              <div className={classes.ArticleInfo}>
-                <header className={classes.Title}>
-                  <strong>{props.data.title}</strong>
-                </header>
-              </div>
-              <div className={classes.ImageContainer}>
-                {props.data.featureExtension.includes("image") && (
-                  <img
-                    className={classes.Image}
-                    src={props.data.featureImage}
-                    alt=": ("
-                  />
-                )}
-                {props.data.featureExtension.includes("video") && (
-                  <video
-                    controls
-                    className={classes.Image}
-                    src={props.data.featureImage}
-                    alt=": ("
-                  />
-                )}
-              </div>
+          {isNaN(articleScore) ? null : (
+            <Progress multi className={classes.ProgressBar}>
+              <Progress bar value={articleScore} color="success" />
+              <Progress bar value={100 - articleScore} color="danger" />
+            </Progress>
+          )}
 
-              <div className={classes.ArticleMain}>
-                {parse(removeTags(props.data.content))}
-              </div>
-            </div>
-            {isNaN(articleScore) ? null : (
-              <Progress multi className={classes.ProgressBar}>
-                <Progress bar value={articleScore} color="success" />
-                <Progress bar value={100 - articleScore} color="danger" />
-              </Progress>
+          <div className={classes.Info}>
+            {isNaN(articleScore) ? (
+              <Badge
+                style={{
+                  color: "#3b3b3b",
+                  marginRight: 4,
+                  borderRadius: 5,
+                  backgroundColor: "#e9ecec",
+                }}
+              >
+                Not Rated
+              </Badge>
+            ) : (
+              <Badge
+                style={{
+                  color: "#3b3b3b",
+                  marginRight: 4,
+                  borderRadius: 5,
+                  backgroundColor: "#e9ecec",
+                }}
+              >
+                {Math.round(articleScore)} %
+              </Badge>
             )}
-
-            <div className={classes.Info}>
-              {isNaN(articleScore) ? (
-                <Badge
-                  style={{
-                    color: "#3b3b3b",
-                    marginRight: 4,
-                    borderRadius: 5,
-                    backgroundColor: "#e9ecec",
-                  }}
-                >
-                  Not Rated
-                </Badge>
-              ) : (
-                <Badge
-                  style={{
-                    color: "#3b3b3b",
-                    marginRight: 4,
-                    borderRadius: 5,
-                    backgroundColor: "#e9ecec",
-                  }}
-                >
-                  {Math.round(articleScore)} %
-                </Badge>
-              )}
-              {props.data.commentCount ? (
-                <Badge
-                  style={{
-                    color: "#3b3b3b",
-                    marginRight: 4,
-                    borderRadius: 5,
-                    backgroundColor: "#e9ecec",
-                  }}
-                >
-                  {props.data.commentCount}
-                </Badge>
-              ) : (
-                <Badge
-                  style={{
-                    color: "#3b3b3b",
-                    marginRight: 4,
-                    borderRadius: 5,
-                    backgroundColor: "#e9ecec",
-                  }}
-                >
-                  No Comments
-                </Badge>
-              )}
+            {props.data.commentCount ? (
               <Badge
                 style={{
                   color: "#3b3b3b",
@@ -189,8 +117,9 @@ const ArticleCard = (props) => {
                   backgroundColor: "#e9ecec",
                 }}
               >
-                {props.data.createUserID.slice(0, 7)}
+                {props.data.commentCount}
               </Badge>
+            ) : (
               <Badge
                 style={{
                   color: "#3b3b3b",
@@ -199,11 +128,31 @@ const ArticleCard = (props) => {
                   backgroundColor: "#e9ecec",
                 }}
               >
-                {timeStampToString(props.data.createDate.seconds)}
+                No Comments
               </Badge>
-            </div>
-          </Link>
-        )}
+            )}
+            <Badge
+              style={{
+                color: "#3b3b3b",
+                marginRight: 4,
+                borderRadius: 5,
+                backgroundColor: "#e9ecec",
+              }}
+            >
+              {props.data.createUserID.slice(0, 7)}
+            </Badge>
+            <Badge
+              style={{
+                color: "#3b3b3b",
+                marginRight: 4,
+                borderRadius: 5,
+                backgroundColor: "#e9ecec",
+              }}
+            >
+              {timeStampToString(props.data.createDate.seconds)}
+            </Badge>
+          </div>
+        </Link>
       </Container>
       <hr className={classes.HorLine} />
     </div>

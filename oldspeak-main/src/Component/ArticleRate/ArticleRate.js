@@ -17,6 +17,7 @@ class ArticleRate extends Component {
 
   componentDidMount() {
     const userRef = db.collection("Users").doc(this.props.auth.uid);
+    this.setState({ hasLoaded: true });
     userRef.get().then((doc) => {
       //check if user has voted
       if (doc.exists) {
