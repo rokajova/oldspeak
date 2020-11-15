@@ -54,10 +54,9 @@ const CommentCard = (props) => {
       date.getSeconds()
     );
   };
-  function removeTags(str) {
-    if (str === null || str === "") return false;
-    else str = str.toString();
-    return str.replace(/(<([^>]+)>)/gi, "");
+  function removePBR(str) {
+    if (!str) return str;
+    return str.replace(/<p><br[\/]?><[\/]?p>/g, "");
   }
   return (
     <div>
@@ -132,7 +131,7 @@ const CommentCard = (props) => {
                   ) : null}
                   {props.data.replyContent ? (
                     <div style={{ paddingLeft: "4px", paddingRight: "4px" }}>
-                      {parse(props.data.replyContent)}
+                      {parse(removePBR(props.data.replyContent))}
                     </div>
                   ) : null}
                   <div className={classes.ReplyInfo}>
@@ -161,7 +160,7 @@ const CommentCard = (props) => {
               ) : null}
 
               <div className={classes.CommentMain}>
-                {parse(props.data.content)}
+                {parse(removePBR(props.data.content))}
               </div>
             </div>
             <div className={classes.Info}>

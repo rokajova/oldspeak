@@ -98,6 +98,11 @@ class ViewArticle extends Component {
         (this.state.article.negativeRatings +
           this.state.article.positiveRatings)) *
       100;
+    // remove empty <br> and <p> tags
+    function removePBR(str) {
+      if (!str) return str;
+      return str.replace(/<p><br[\/]?><[\/]?p>/g, "");
+    }
     if (this.state.isLoaded) {
       return (
         <Container className={classes.ViewArticleContainer}>
@@ -151,7 +156,7 @@ class ViewArticle extends Component {
                 )}
 
                 <div className={classes.ArticleMain}>
-                  {parse(this.state.article.content)}
+                  {parse(removePBR(this.state.article.content))}
                 </div>
               </div>
               {isNaN(articleScore) ? null : (
