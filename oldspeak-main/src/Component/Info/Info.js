@@ -299,6 +299,55 @@ const Info = (props) => {
                     paddingLeft: "4px",
                   }}
                 >
+                  <strong>Guest browsing.</strong>
+                  <i
+                    style={{
+                      bottom: 0,
+                      right: 0,
+                      position: "absolute",
+                      fontSize: "14px",
+                      color: "gray",
+                      paddingRight: "2px",
+                    }}
+                  >
+                    November 11th, 2020
+                  </i>
+                </h4>{" "}
+                <p style={{ margin: "4px" }}>
+                  <mark
+                    style={{
+                      backgroundColor: "#d2d9d9",
+                      fontFamily: "monospace",
+                    }}
+                  >
+                    CREATE NAME
+                  </mark>{" "}
+                  is no longer needed in order to read thinks and comments.
+                  Users can now freely use the website as guests. This solves an
+                  issue where new users could not view thinks they were linked
+                  to, as they we redirected to home page. However, creating
+                  thinks, commenting and rating still requires to{" "}
+                  <mark
+                    style={{
+                      backgroundColor: "#d2d9d9",
+                      fontFamily: "monospace",
+                    }}
+                  >
+                    CREATE NAME
+                  </mark>{" "}
+                  . <br />
+                  Also, I've added extra security features and improved overall
+                  readability.
+                </p>{" "}
+              </div>
+              <div className={classes.ModalNewsContent}>
+                <h4
+                  style={{
+                    position: "relative",
+                    borderBottom: "1px solid silver",
+                    paddingLeft: "4px",
+                  }}
+                >
                   <strong>Replies.</strong>
                   <i
                     style={{
