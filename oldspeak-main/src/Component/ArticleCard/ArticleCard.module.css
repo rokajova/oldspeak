@@ -26,6 +26,7 @@
 }
 
 .Title {
+  text-align: center;
   font-size: 22px;
   word-wrap: break-word;
   padding-left: 0.4rem;
