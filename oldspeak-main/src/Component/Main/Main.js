@@ -104,8 +104,6 @@ class Main extends Component {
     return (
       //rendering every element in articles array in state
       <Container className={classes.Main}>
-        <Button>Popular</Button>
-        <Button>New</Button>
         {this.state.isLoaded
           ? this.state.articles.map((article, index) => {
               return <ArticleCard key={index} data={article} />;
