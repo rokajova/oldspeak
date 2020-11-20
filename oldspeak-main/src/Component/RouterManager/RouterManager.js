@@ -13,7 +13,8 @@ import Main from "../Main/Main";
 import Heading from "../Heading/Heading";
 import Comments from "../Comments/Comments";
 import { connect } from "react-redux";
-import * as firebase from "firebase";
+
+// FIX THIS UGLY COMPONENT PLEASE
 
 const AdminOnly = (ComposedComponent, auth) => {
   class AdminOnly extends Component {
