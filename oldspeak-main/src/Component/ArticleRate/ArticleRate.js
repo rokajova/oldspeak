@@ -166,7 +166,6 @@ class ArticleRate extends Component {
                     borderRadius: 0,
                     fontSize: "14px",
                     width: "6rem",
-                    // marginRight: "1rem",
                   }}
                   color="success"
                   disabled

@@ -54,6 +54,8 @@ const CommentCard = (props) => {
       date.getSeconds()
     );
   };
+
+  // remove <p> and <br> tags
   function removePBR(str) {
     if (!str) return str;
     return str.replace(/<p><br[\/]?><[\/]?p>/g, "");

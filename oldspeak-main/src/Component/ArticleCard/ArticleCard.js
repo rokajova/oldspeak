@@ -5,6 +5,7 @@ import classes from "./ArticleCard.module.css";
 import parse from "html-react-parser";
 import { Link } from "react-router-dom";
 
+// date in yyyy/mm/dd/hh/mm/ss format
 export function timeStampToString(ts) {
   const date = new Date(ts * 1000);
   return (
@@ -158,6 +159,8 @@ const ArticleCard = (props) => {
     </div>
   );
 };
+
+// props.auth enhance
 const enhance = connect(({ firebase: { auth, profile } }) => ({
   auth,
   profile,

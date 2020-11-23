@@ -42,6 +42,7 @@ class Heading extends Component {
         });
     }
   }
+
   handleClick = (isNewArticleOpen) => {
     this.setState({ isNewArticleOpen: !this.state.isNewArticleOpen });
   };

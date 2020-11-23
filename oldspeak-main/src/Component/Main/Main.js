@@ -63,6 +63,7 @@ class Main extends Component {
       });
   };
 
+  //get limit ammount of articles, ordered by orderBy in state
   componentDidMount() {
     this.getMyArticles();
   }

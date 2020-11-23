@@ -1,6 +1,6 @@
 import * as firebase from "firebase";
 import "firebase/analytics";
-// firebase informacija
+// firebase config
 const firebaseConfig = {
   apiKey: "AIzaSyB7wDHjK6qVAYMjh3GDF47NFOpZDZGAv4k",
   authDomain: "oldspeak-56bd3.firebaseapp.com",

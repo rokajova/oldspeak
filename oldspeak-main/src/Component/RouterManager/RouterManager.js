@@ -14,35 +14,34 @@ import Heading from "../Heading/Heading";
 import Comments from "../Comments/Comments";
 import { connect } from "react-redux";
 
-// FIX THIS UGLY COMPONENT PLEASE
-
+//originally this component is meant to provide admin access to users using firebase rules.
 const AdminOnly = (ComposedComponent, auth) => {
   class AdminOnly extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        isPass: false,
+        // isPass: false,
       };
     }
-    componentDidMount() {
-      // if (!auth.isEmpty) {
-      //   firebase
-      //     .auth()
-      //     .currentUser.getIdTokenResult()
-      //     .then((getIdTokenResult) => {
-      //       // if (getIdTokenResult.claims.type === "administrator") {
-      //       if (!auth.isEmpty) {
-      //         this.setState({
-      //           isPass: true,
-      //         });
-      //       } else {
-      //         this.props.history.push("/");
-      //       }
-      //     });
-      // } else {
-      //   this.props.history.push("/");
-      // }
-    }
+    // componentDidMount() {
+    //   if (!auth.isEmpty) {
+    //     firebase
+    //       .auth()
+    //       .currentUser.getIdTokenResult()
+    //       .then((getIdTokenResult) => {
+    //         // if (getIdTokenResult.claims.type === "administrator") {
+    //         if (!auth.isEmpty) {
+    //           this.setState({
+    //             isPass: true,
+    //           });
+    //         } else {
+    //           this.props.history.push("/");
+    //         }
+    //       });
+    //   } else {
+    //     this.props.history.push("/");
+    //   }
+    // }
     render() {
       // if (this.state.isPass) {
       return (
