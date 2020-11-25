@@ -24,16 +24,21 @@ class Main extends Component {
   //set state for lastArticle to be the last article in the articles array
   //limit is 1
   nextArticle = () => {
-    let last = this.state.lastArticle;
+    let last;
+    if (this.state.orderBy == "createDate") {
+      last = this.state.lastArticle.createDate;
+    } else if (this.state.orderBy == "commentCount") {
+      last = this.state.lastArticle.commentCount;
+    }
+
     this.setState({ buttonDisabled: true });
     db.collection("Articles")
       .orderBy(this.state.orderBy, "desc")
-      .startAfter(last.createDate)
+      .startAfter(last)
       .limit(1)
       .get()
       .then((docs) => {
         if (!docs.empty) {
-          var last = this.state.articles[this.state.articles.length - 1];
           let allArticles = [];
           docs.forEach(function (doc) {
             const article = {
@@ -107,8 +112,9 @@ class Main extends Component {
       <Container className={classes.Main}>
         <Button
           onClick={() =>
-            this.setState({ orderBy: "commentCount" }, () =>
-              this.getMyArticles()
+            this.setState(
+              { orderBy: "commentCount", buttonDisabled: false },
+              () => this.getMyArticles()
             )
           }
         >
@@ -116,7 +122,10 @@ class Main extends Component {
         </Button>
         <Button
           onClick={() =>
-            this.setState({ orderBy: "createDate" }, () => this.getMyArticles())
+            this.setState(
+              { orderBy: "createDate", buttonDisabled: false },
+              () => this.getMyArticles()
+            )
           }
         >
           Newest
