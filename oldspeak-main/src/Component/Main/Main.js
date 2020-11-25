@@ -67,6 +67,9 @@ class Main extends Component {
   componentDidMount() {
     this.getMyArticles();
   }
+  // componentDidUpdate() {
+  //   this.getMyArticles();
+  // }
 
   //referencing Articles, ordering by createDate. Populate comments array with articles from db
   //limit is in state
@@ -105,6 +108,22 @@ class Main extends Component {
     return (
       //rendering every element in articles array in state
       <Container className={classes.Main}>
+        <Button
+          onClick={() =>
+            this.setState({ orderBy: "commentCount" }, () =>
+              this.getMyArticles()
+            )
+          }
+        >
+          Popular
+        </Button>
+        <Button
+          onClick={() =>
+            this.setState({ orderBy: "createDate" }, () => this.getMyArticles())
+          }
+        >
+          Newest
+        </Button>
         {this.state.isLoaded
           ? this.state.articles.map((article, index) => {
               return <ArticleCard key={index} data={article} />;
