@@ -67,9 +67,6 @@ class Main extends Component {
   componentDidMount() {
     this.getMyArticles();
   }
-  // componentDidUpdate() {
-  //   this.getMyArticles();
-  // }
 
   //referencing Articles, ordering by createDate. Populate comments array with articles from db
   //limit is in state

@@ -33,6 +33,7 @@ class NewArticle extends Component {
         featureExtension: "",
         positiveRatings: 0,
         negativeRatings: 0,
+        commentCount: 0,
         createUserID: "",
       },
     };
