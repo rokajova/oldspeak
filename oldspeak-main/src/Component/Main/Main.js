@@ -24,6 +24,7 @@ class Main extends Component {
   //set state for lastArticle to be the last article in the articles array
   //limit is 1
   nextArticle = () => {
+    // if comment count is 0, sort it by newest
     let last;
     if (this.state.orderBy == "createDate") {
       last = this.state.lastArticle.createDate;
