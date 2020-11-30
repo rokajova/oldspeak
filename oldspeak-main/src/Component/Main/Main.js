@@ -20,7 +20,7 @@ class Main extends Component {
     };
   }
 
-  //get next article after last rendered ordered by createdate, update article array in state
+  //get next article after last rendered ordered by createdate(default) or popularscore, update article array in state
   //set state for lastArticle to be the last article in the articles array
   //limit is 1
   nextArticle = () => {

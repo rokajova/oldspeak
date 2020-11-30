@@ -91,14 +91,14 @@ class ViewArticle extends Component {
     this.setState({ isEnlarged: !this.state.isEnlarged });
   };
 
-  addScore = (aid) => {
-    const articleRef = db.collection("Articles").doc(aid);
-    articleRef.update({
-      popularScore:
-        this.state.article.commentCount * 1000000000 +
-        this.state.article.createDate.seconds,
-    });
-  };
+  // addScore = (aid) => {
+  //   const articleRef = db.collection("Articles").doc(aid);
+  //   articleRef.update({
+  //     popularScore:
+  //       this.state.article.commentCount * 1000000000 +
+  //       this.state.article.createDate.seconds,
+  //   });
+  // };
 
   render() {
     //calculate article score
@@ -117,9 +117,9 @@ class ViewArticle extends Component {
         <Container className={classes.ViewArticleContainer}>
           <Row>
             <Col sm="12" md={{ size: 12, offset: 0 }}>
-              <button onClick={() => this.addScore(this.props.match.params.id)}>
+              {/* <button onClick={() => this.addScore(this.props.match.params.id)}>
                 Add Score
-              </button>{" "}
+              </button>{" "} */}
               <div className={classes.TitleDiv}>
                 <header className={classes.Title}>
                   <strong>{this.state.article.title}</strong>

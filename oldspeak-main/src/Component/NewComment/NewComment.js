@@ -174,11 +174,11 @@ class NewComment extends Component {
       }
     );
 
-    //update commentcount and popularscore
+    //update commentcount by 1 and popularscore by 1^12
     const articleRef = db.collection("Articles").doc(aid);
     articleRef.update({
+      popularScore: firebase.firestore.FieldValue.increment(Math.pow(10, 12)),
       commentCount: firebase.firestore.FieldValue.increment(1),
-      popularScore: firebase.firestore.FieldValue.increment(1),
     });
     recaptchaInstance.reset();
   };
