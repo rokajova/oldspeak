@@ -24,85 +24,48 @@ class Main extends Component {
   //set state for lastArticle to be the last article in the articles array
   //limit is 1
   nextArticle = () => {
-    // if comment count is 0, sort it by newest
     let last;
 
     if (this.state.orderBy == "createDate") {
       last = this.state.lastArticle.createDate;
-      this.setState({ buttonDisabled: true });
-      db.collection("Articles")
-        .orderBy(this.state.orderBy, "desc")
-        .startAfter(last)
-        .limit(1)
-        .get()
-        .then((docs) => {
-          if (!docs.empty) {
-            let allArticles = [];
-            docs.forEach(function (doc) {
-              const article = {
-                id: doc.id,
-                ...doc.data(),
-              };
-              allArticles.push(article);
-            });
-
-            let updated_articles = this.state.articles.concat(allArticles);
-            this.setState(
-              {
-                articles: updated_articles,
-              },
-              () => {
-                this.setState({
-                  buttonDisabled: false,
-                  isLoaded: true,
-                  lastArticle: this.state.articles[
-                    this.state.articles.length - 1
-                  ],
-                });
-              }
-            );
-          }
-          window.scrollTo(0, document.body.scrollHeight);
-        });
-    } else if (this.state.orderBy == "commentCount") {
-      last = this.state.lastArticle.commentCount;
-      this.setState({ buttonDisabled: true });
-      db.collection("Articles")
-        .orderBy(this.state.orderBy, "desc")
-        .orderBy("createDate", "desc")
-        .startAfter(last)
-        .limit(1)
-        .get()
-        .then((docs) => {
-          if (!docs.empty) {
-            let allArticles = [];
-            docs.forEach(function (doc) {
-              const article = {
-                id: doc.id,
-                ...doc.data(),
-              };
-              allArticles.push(article);
-            });
-
-            let updated_articles = this.state.articles.concat(allArticles);
-            this.setState(
-              {
-                articles: updated_articles,
-              },
-              () => {
-                this.setState({
-                  buttonDisabled: false,
-                  isLoaded: true,
-                  lastArticle: this.state.articles[
-                    this.state.articles.length - 1
-                  ],
-                });
-              }
-            );
-          }
-          window.scrollTo(0, document.body.scrollHeight);
-        });
+    } else if (this.state.orderBy == "popularScore") {
+      last = this.state.lastArticle.popularScore;
     }
+    this.setState({ buttonDisabled: true });
+    db.collection("Articles")
+      .orderBy(this.state.orderBy, "desc")
+      .startAfter(last)
+      .limit(1)
+      .get()
+      .then((docs) => {
+        if (!docs.empty) {
+          let allArticles = [];
+          docs.forEach(function (doc) {
+            const article = {
+              id: doc.id,
+              ...doc.data(),
+            };
+            allArticles.push(article);
+          });
+
+          let updated_articles = this.state.articles.concat(allArticles);
+          this.setState(
+            {
+              articles: updated_articles,
+            },
+            () => {
+              this.setState({
+                buttonDisabled: false,
+                isLoaded: true,
+                lastArticle: this.state.articles[
+                  this.state.articles.length - 1
+                ],
+              });
+            }
+          );
+        }
+        window.scrollTo(0, document.body.scrollHeight);
+      });
   };
 
   //get limit ammount of articles, ordered by orderBy in state
@@ -150,7 +113,7 @@ class Main extends Component {
         <Button
           onClick={() =>
             this.setState(
-              { orderBy: "commentCount", buttonDisabled: false },
+              { orderBy: "popularScore", buttonDisabled: false },
               () => this.getMyArticles()
             )
           }
