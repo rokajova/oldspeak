@@ -125,12 +125,12 @@ class Main extends Component {
             }}
             onClick={() =>
               this.setState(
-                { orderBy: "popularScore", buttonDisabled: false },
+                { orderBy: "createDate", buttonDisabled: false },
                 () => this.getMyArticles()
               )
             }
           >
-            <strong>POPULAR</strong>
+            <strong>NEW</strong>
           </Button>
           <Button
             outline
@@ -145,12 +145,12 @@ class Main extends Component {
             }}
             onClick={() =>
               this.setState(
-                { orderBy: "createDate", buttonDisabled: false },
+                { orderBy: "popularScore", buttonDisabled: false },
                 () => this.getMyArticles()
               )
             }
           >
-            <strong>NEW</strong>
+            <strong>POPULAR</strong>
           </Button>
         </div>
 
