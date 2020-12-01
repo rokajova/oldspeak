@@ -73,7 +73,7 @@ class Main extends Component {
     this.getMyArticles();
   }
 
-  //referencing Articles, ordering by createDate. Populate comments array with articles from db
+  //referencing Articles, ordering by orderBy state. Populate articles array with articles from db
   //limit is in state
   getMyArticles = () => {
     db.collection("Articles")
@@ -110,26 +110,50 @@ class Main extends Component {
     return (
       //rendering every element in articles array in state
       <Container className={classes.Main}>
-        <Button
-          onClick={() =>
-            this.setState(
-              { orderBy: "popularScore", buttonDisabled: false },
-              () => this.getMyArticles()
-            )
-          }
-        >
-          Popular
-        </Button>
-        <Button
-          onClick={() =>
-            this.setState(
-              { orderBy: "createDate", buttonDisabled: false },
-              () => this.getMyArticles()
-            )
-          }
-        >
-          Newest
-        </Button>
+        <div className={classes.MoreButton}>
+          {" "}
+          <Button
+            outline
+            color="dark"
+            style={{
+              border: "none",
+              borderRadius: 0,
+              fontFamily: "monospace",
+              marginRight: "2rem",
+              width: "6rem",
+              fontSize: "14px",
+            }}
+            onClick={() =>
+              this.setState(
+                { orderBy: "popularScore", buttonDisabled: false },
+                () => this.getMyArticles()
+              )
+            }
+          >
+            <strong>POPULAR</strong>
+          </Button>
+          <Button
+            outline
+            color="dark"
+            style={{
+              border: "none",
+              borderRadius: 0,
+              fontFamily: "monospace",
+              marginLeft: "2rem",
+              width: "6rem",
+              fontSize: "14px",
+            }}
+            onClick={() =>
+              this.setState(
+                { orderBy: "createDate", buttonDisabled: false },
+                () => this.getMyArticles()
+              )
+            }
+          >
+            <strong>NEW</strong>
+          </Button>
+        </div>
+
         {this.state.isLoaded
           ? this.state.articles.map((article, index) => {
               return <ArticleCard key={index} data={article} />;

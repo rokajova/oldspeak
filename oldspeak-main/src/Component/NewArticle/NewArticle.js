@@ -35,6 +35,7 @@ class NewArticle extends Component {
         negativeRatings: 0,
         commentCount: 0,
         createUserID: "",
+        //integer in miliseconds
         popularScore: new Date().getTime(),
       },
     };

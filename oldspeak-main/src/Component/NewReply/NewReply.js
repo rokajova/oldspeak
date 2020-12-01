@@ -182,7 +182,7 @@ class NewReply extends Component {
       }
     );
 
-    //update commentcount
+    //update commentcount by 1 and popularScore by 1^12
     const articleRef = db.collection("Articles").doc(aid);
     articleRef.update({
       popularScore: firebase.firestore.FieldValue.increment(Math.pow(10, 12)),
