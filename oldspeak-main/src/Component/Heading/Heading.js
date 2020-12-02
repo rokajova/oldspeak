@@ -153,7 +153,8 @@ class Heading extends Component {
             style={{ padding: "0.5rem", backgroundColor: "#e9ecec" }}
           >
             <strong style={{ fontFamily: "monospace", fontSize: "16px" }}>
-              contact@oldspeak.me
+              contact@oldspeak.me <b style={{ color: "silver" }}>|</b>{" "}
+              <a href="http://www.twitter.com/oldspeakme">@oldspeakme</a>
             </strong>
             <Button
               onClick={() =>

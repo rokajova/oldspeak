@@ -299,6 +299,56 @@ const Info = (props) => {
                     paddingLeft: "4px",
                   }}
                 >
+                  <strong>Content sorting.</strong>
+                  <i
+                    style={{
+                      bottom: 0,
+                      right: 0,
+                      position: "absolute",
+                      fontSize: "14px",
+                      color: "gray",
+                      paddingRight: "2px",
+                    }}
+                  >
+                    December 2nd, 2020
+                  </i>
+                </h4>{" "}
+                <p style={{ margin: "4px" }}>
+                  It's finally winter and with it also comes some updates!
+                  <br />I have finally added a sorting system. Now you can sort
+                  thinks by pressing{" "}
+                  <mark
+                    style={{
+                      backgroundColor: "#d2d9d9",
+                      fontFamily: "monospace",
+                    }}
+                  >
+                    NEW
+                  </mark>{" "}
+                  or{" "}
+                  <mark
+                    style={{
+                      backgroundColor: "#d2d9d9",
+                      fontFamily: "monospace",
+                    }}
+                  >
+                    POPULAR
+                  </mark>{" "}
+                  buttons located on the top of the main page. I was trying to
+                  figure out how to determine a thinks popularity and with some
+                  attribute tinkering I think I have found an optimal way to do
+                  that. The way the popularity is calculated may change in the
+                  future if more features are added.
+                </p>{" "}
+              </div>
+              <div className={classes.ModalNewsContent}>
+                <h4
+                  style={{
+                    position: "relative",
+                    borderBottom: "1px solid silver",
+                    paddingLeft: "4px",
+                  }}
+                >
                   <strong>Guest browsing.</strong>
                   <i
                     style={{
@@ -363,7 +413,7 @@ const Info = (props) => {
                   </i>
                 </h4>{" "}
                 <p style={{ margin: "4px" }}>
-                  Added a simple reply system. Just click this{" "}
+                  Added a simple reply system. Just click{" "}
                   <svg viewBox="0 0 16 16" fill="currentColor" width="2em">
                     <path
                       fill-rule="evenodd"
