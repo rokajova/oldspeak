@@ -300,11 +300,9 @@ const Info = (props) => {
                   }}
                 >
                   <strong>Content sorting.</strong>
+                  <br />
                   <i
                     style={{
-                      bottom: 0,
-                      right: 0,
-                      position: "absolute",
                       fontSize: "14px",
                       color: "gray",
                       paddingRight: "2px",
@@ -350,11 +348,9 @@ const Info = (props) => {
                   }}
                 >
                   <strong>Guest browsing.</strong>
+                  <br />
                   <i
                     style={{
-                      bottom: 0,
-                      right: 0,
-                      position: "absolute",
                       fontSize: "14px",
                       color: "gray",
                       paddingRight: "2px",
@@ -399,11 +395,9 @@ const Info = (props) => {
                   }}
                 >
                   <strong>Replies.</strong>
+                  <br />
                   <i
                     style={{
-                      bottom: 0,
-                      right: 0,
-                      position: "absolute",
                       fontSize: "14px",
                       color: "gray",
                       paddingRight: "2px",
@@ -432,11 +426,9 @@ const Info = (props) => {
                   }}
                 >
                   <strong>Video support in thinks and comments.</strong>
+                  <br />
                   <i
                     style={{
-                      bottom: 0,
-                      right: 0,
-                      position: "absolute",
                       fontSize: "14px",
                       color: "gray",
                       paddingRight: "2px",
@@ -477,11 +469,9 @@ const Info = (props) => {
                   }}
                 >
                   <strong> Oldspeak.me launch! </strong>
+                  <br />
                   <i
                     style={{
-                      bottom: 0,
-                      right: 0,
-                      position: "absolute",
                       fontSize: "14px",
                       color: "gray",
                       paddingRight: "2px",
