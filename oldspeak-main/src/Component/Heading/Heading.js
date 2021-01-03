@@ -50,14 +50,14 @@ class Heading extends Component {
       .auth()
       .setPersistence(firebase.auth.Auth.Persistence.LOCAL)
       .then(() => {
-        this.setState({ isNameCreatedAlertOpen: true });
-        setTimeout(() => {
-          this.setState({
-            isNameCreatedAlertOpen: false,
-          });
-        }, 2000);
         return firebase.auth().signInAnonymously();
       });
+    this.setState({ isNameCreatedAlertOpen: true });
+    setTimeout(() => {
+      this.setState({
+        isNameCreatedAlertOpen: false,
+      });
+    }, 2000);
   };
 
   render() {

@@ -299,6 +299,35 @@ const Info = (props) => {
                     paddingLeft: "4px",
                   }}
                 >
+                  <strong>Extra Alerts.</strong>
+                  <br />
+                  <i
+                    style={{
+                      fontSize: "14px",
+                      color: "gray",
+                      paddingRight: "2px",
+                    }}
+                  >
+                    January 3rd, 2021
+                  </i>
+                </h4>{" "}
+                <p style={{ margin: "4px" }}>
+                  Happy new year! <br />
+                  No big updates with this one, just a few quality of life touch
+                  ups. Added some extra alerts to improve the usability of the
+                  website and cleaned up most on the pop up windows. <br />
+                  Also I am working on another website. Will give an update on
+                  that soon!
+                </p>{" "}
+              </div>
+              <div className={classes.ModalNewsContent}>
+                <h4
+                  style={{
+                    position: "relative",
+                    borderBottom: "1px solid silver",
+                    paddingLeft: "4px",
+                  }}
+                >
                   <strong>Content sorting.</strong>
                   <br />
                   <i
