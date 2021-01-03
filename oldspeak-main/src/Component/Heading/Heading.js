@@ -5,10 +5,7 @@ import {
   Nav,
   NavItem,
   NavbarToggler,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownItem,
-  DropdownMenu,
+  Alert,
   Button,
   Collapse,
   Modal,
@@ -25,6 +22,7 @@ class Heading extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      isNameCreatedAlertOpen: false,
       isOpen: false,
       isInfoOpen: false,
       isNewArticleOpen: false,
@@ -52,6 +50,12 @@ class Heading extends Component {
       .auth()
       .setPersistence(firebase.auth.Auth.Persistence.LOCAL)
       .then(() => {
+        this.setState({ isNameCreatedAlertOpen: true });
+        setTimeout(() => {
+          this.setState({
+            isNameCreatedAlertOpen: false,
+          });
+        }, 2000);
         return firebase.auth().signInAnonymously();
       });
   };
@@ -131,6 +135,15 @@ class Heading extends Component {
             </Collapse>
           </Navbar>
         )}
+
+        <Alert
+          isOpen={this.state.isNameCreatedAlertOpen}
+          toggle={() => this.setState({ isNameCreatedAlertOpen: false })}
+          style={{ marginTop: "40px" }}
+        >
+          Name Created!
+        </Alert>
+
         <Modal
           className={classes.ModalInfo}
           size="lg"
